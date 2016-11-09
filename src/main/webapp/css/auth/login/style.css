@@ -1,0 +1,188 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    background: -webkit-linear-gradient(top, #baeef2, #e6ebf1);
+    background: -moz-linear-gradient(top, #baeef2, #e6ebf1);
+    background: -ms-linear-gradient(top, #baeef2, #e6ebf1);
+    background: -o-linear-gradient(top, #baeef2, #e6ebf1);
+    font-family: 'lucida sans', 'trebuchet MS', 'Tahoma', serif;
+}
+
+.content-wrapper {
+    width: 70%;
+    height: 100%;
+    min-width: 850px;
+    min-height: 600px;
+    position: relative;
+    margin: 0 auto;
+    background-color: white;
+    border: 1px solid #eee;
+    box-shadow: 0 0 3px #eee, 0 0 5px #bbb, 0 0 7px #999;
+}
+
+nav {
+    width: 100%;
+    height: 40px;
+    border-bottom: 1px solid gray;
+}
+
+.main {
+    position: absolute;
+    top: 40px;
+    bottom: 30px;
+    width: 100%;
+    overflow: hidden;
+}
+
+footer {
+    width: 100%;
+    height: 30px;
+    position: absolute;
+    bottom: 0;
+    border-top: 1px solid gray;
+}
+
+aside {
+    width: 30%;
+    height: 100%;
+    padding: 0 10%;
+    float: left;
+}
+
+.login {
+    width: 45%;
+    height: 100%;
+    float: right;
+}
+
+nav {
+    background: url(/img/auth/login/NJU-LOGO.png) left top no-repeat;
+    background-size: contain;
+}
+
+nav ul {
+    overflow: hidden;
+}
+
+nav li {
+    float: right;
+    text-decoration: none;
+    margin: 10px 0;
+    padding: 0 10px;
+    border-right: 1px solid gray;
+}
+
+nav li:first-child {
+    border-right: none;
+    margin-right: 30px;
+}
+
+nav li a {
+    text-decoration: none;
+    font-size: 12px;
+}
+
+nav li a:hover {
+    text-decoration: underline;
+}
+
+aside img, aside p {
+    width: 80%;
+    padding: 10px 10%;
+}
+
+aside img {
+    margin-top: 30%;
+}
+
+aside p {
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: bold;
+    color: #14151f;
+    text-align: center;
+}
+
+.login form {
+    margin-top: 30%;
+    width: 300px;
+    padding: 30px;
+}
+
+.login form li:nth-of-type(1) {
+    margin-bottom: 30px;
+    font-size: 25px;
+    text-align: center;
+    color: #733aca;
+    text-shadow: 0 0 1px #733aca, 0 0 2px #8868ca;
+}
+
+.login form li:nth-of-type(2) input,
+.login form li:nth-of-type(3) input {
+    width: 240px;
+    padding: 10px 30px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: 1px solid rgba(148, 148, 148, 0.5);
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.login form li:nth-of-type(2) input:focus,
+.login form li:nth-of-type(3) input:focus {
+    background-color: rgba(182, 241, 255, 0.4)
+}
+
+.login form li:nth-of-type(4) {
+    margin-top: 15px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.btn {
+    width: 300px;
+    height: 50px;
+    margin: 15px 0 25px;
+    font: bold 16px 'lucida sans', 'trebuchet MS', 'Tahoma';
+    color: white;
+    cursor: pointer;
+    border:none;
+    border-radius: 5px;
+    background-image: -webkit-linear-gradient(top, #57edef, #4cc8ca);
+    background-image: -moz-linear-gradient(top, #57edef, #4cc8ca);
+    background-image: -o-linear-gradient(top, #57edef, #4cc8ca);
+    background-image: -ms-linear-gradient(top, #57edef, #4cc8ca);
+    background-image: linear-gradient(top, #57edef, #4cc8ca);
+}
+
+.btn:hover,
+.btn:focus {
+    background-image: -webkit-linear-gradient(top, #4cc8ca, #57edef);
+    background-image: -moz-linear-gradient(top,#4cc8ca, #57edef);
+    background-image: -o-linear-gradient(top, #4cc8ca, #57edef);
+    background-image: -ms-linear-gradient(top, #4cc8ca, #57edef);
+    background-image: linear-gradient(top, #4cc8ca, #57edef);
+}
+
+footer{
+    text-align: center;
+}
+
+footer a{
+    display: inline-block;
+    margin-top: 8px;
+    border-right: 1px solid grey;
+    padding: 0 10px;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+footer a:last-child {
+    border-right: none;
+}
+
+footer a:hover{
+    text-decoration: underline;
+}
