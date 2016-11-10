@@ -12,7 +12,7 @@ node {
     stage('deploy') {
         sh "docker stop devops || true"
         sh "docker rm devops || true"
-        sh "docker run --name devops -p 22222:8080 -v /home/project:/usr/local/ -d tomcat"
+        sh "docker run --name devops -p 22222:8080 -d tomcat"
         sh "docker cp target/DevOpsProject.war devops:/usr/local/tomcat/webapps"
     }
     stage('results') {
