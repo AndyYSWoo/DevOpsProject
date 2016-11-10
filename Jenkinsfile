@@ -3,7 +3,7 @@ node {
         git 'https://github.com/AndyYSWoo/DevOpsProject.git'
     }
     stage('QA') {
-        sh '/usr/local/src/sonar-scanner-2.8/bin sonar-scanner'
+        sh '/usr/local/src/sonar-scanner-2.8/bin/sonar-scanner'
     }
     stage('build') {
         def mvnHome = tool 'M3'
