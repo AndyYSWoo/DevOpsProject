@@ -51,8 +51,12 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 	
+
 	<bean id="adminAuthService" class="cn.edu.nju.se.DevOpsProject.service.AdminAuthService">
-		
+    </bean>
+
+	<bean id="riskEntryDao" class="cn.edu.nju.se.DevOpsProject.dao.RiskEntryDao">
+		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 	
 
