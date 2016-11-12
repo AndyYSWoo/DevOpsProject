@@ -57,7 +57,7 @@
               <ul class="nav side-menu">
                 <li><a><i class="fa fa-home"></i> User <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
-                    <li class="current-page"><a href="follower_home.html">Followed Risk</a>
+                    <li ><a href="#">Followed Risk</a>
                     </li>
                     <li><a href="follower_closed.html">Closed Risk</a>
                     </li>
@@ -94,45 +94,111 @@
       <!-- /top navigation -->
       
       <!-- page content -->
-      <div class="right_col" role="main" style="height: 700px;">
+      <div class="right_col" role="main" style="min-height:1000px">
         
         <div class="">
-
+			<div class="page-title">
+            <div class="title_left">
+              <h3>Risk Detail</h3>
+            </div>
+			</div>
           <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
               <div class="x_panel">
-                <div class="row x_title">
-                  <div class="col-md-6">
-                    <h3>Follwored Risk</h3>
+                  <div class="col-md-9">
+
+                    <ul class="stats-overview">
+                      <li>
+                        <span class="name"> Possibility </span>
+
+                        <span class="value text-success"> High </span>
+                      </li>
+                      <li>
+                        <span class="name"> Influence </span>
+                        <span class="value text-success"> High </span>
+                      </li>
+                      <li class="hidden-phone">
+                        <span class="name"> status </span>
+                        <span class="value text-success"> closed </span>
+                      </li>
+                    </ul>
+					<div>
+						<h3 class="heading">2012 the world end</h3>
+						<p>The 2012 phenomenon was a range of eschatological beliefs that cataclysmic or otherwise transformative events would occur on or around 21 December 2012.[1][2][3][4] This date was regarded as the end-date of a 5,126-year-long cycle in the Mesoamerican Long Count calendar,[5] and as such, festivities to commemorate the date took place on 21 December 2012 in the countries that were part of the Maya civilization (Mexico, Guatemala, Honduras, and El Salvador), with main events at Chichen Itza in Mexico, and Tikal in Guatemala.[6][7][8]</p>
+						<h4 class="heading">Threshold</h4>
+						<p>when 2012-11-21 comming</p>
+						<h4 class="description">Description</h4>
+						<p>can never avoid</p>
+					</div>	
+                    
+					
+                    <h4>Recent Activity</h4>
+					<table class="table table-striped">
+						<tr>
+							<th>Date</th>
+							<th>Possibility</th>
+							<th>Influence</th>
+							<th>Threshold</th>
+							<th>Description</th>
+							<th>Follower</th>
+						</tr>
+						<tr>
+							<td>2016-11-11 00:00:00</td>
+							<td>high</td>
+							<td>high</td>
+							<td>when 2012-11-21 comming</td>
+							<td>can never avoid</td>
+							<td>Follower</td>
+						</tr>
+					</table>
+                      <!-- end of user messages -->
+                      
+                      <!-- end of user messages -->
+
+
+                    </div>
+
+				 <div class="col-md-3 col-sm-3 col-xs-12">
+
+                    <div class="panel">
+
+                      <div class="x_title">
+                        <h2 class="green">Group People</h2>
+                        <div class="clearfix"></div>
+                      </div>
+					  <div class="panel-body">
+						<h4>Submitter</h4>
+						 <div class="profile">
+							<div class="profile_pic">
+							  <img src="../img/user_normal.png" alt="..." class="img-circle profile_img">
+							</div>
+							<div class="profile_info">
+							  <span>YongShang Wu</span>
+							  
+							</div>
+						 </div>
+						 <div class="clearfix"></div>
+						 <h4>Follower</h4>
+						 <div class="profile">
+							<div class="profile_pic">
+							  <img src="../img/user_normal.png" alt="..." class="img-circle profile_img">
+							</div>
+							<div class="profile_info">
+							  <span>YongShang Wu</span>
+							  
+							</div>
+						 </div>
+					  </div>
+                    </div>
+
                   </div>
-                  
-                </div>
-                <div class="x_content">
-                  <table id="user-datatable" class="table table-striped">
-                    <thead>
-                      <tr>
-                        <th>Risk</th>
-                        <th>Submitter</th>
-						<th>Status</th>
-						<th>Last Modify</th>
-        
-                        <th>Edit</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>2012 the world end</td>
-                        <td>Tiger Nixon</td>
-						<td><button type="button" class="btn btn-info btn-xs">state</button></td>
-                        <td>2016-05-21</td>
-                        <td><a class="btn btn-primary btn-xs" href="risk_detail.html">view</a>
-							<a class="btn btn-danger btn-xs" href=#>close</a>
-						</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
+                   
               </div>
+
+                  <!-- start project-detail sidebar -->
+                  <!-- end project-detail sidebar -->
+
+			  </div>
             </div>
           </div>
           
@@ -144,12 +210,6 @@
 		
       <!-- /page content -->
 <!-- footer content -->
-      <footer>
-        <div class="pull-right">
-          Software Risk Management
-        </div>
-        <div class="clearfix"></div>
-      </footer>
       <!-- /footer content -->
      
     </div>
