@@ -1,5 +1,6 @@
 package cn.edu.nju.se.DevOpsProject.action;
 
+import cn.edu.nju.se.DevOpsProject.model.User;
 import cn.edu.nju.se.DevOpsProject.service.AdminAuthService;
 import cn.edu.nju.se.DevOpsProject.service.UserAuthService;
 import cn.edu.nju.se.DevOpsProject.service.UserQueryService;
@@ -19,8 +20,13 @@ public class LoginAction extends BaseAction{
 			UserAuthService userAuthService = (UserAuthService)ContextHelper.getBean("userAuthService");
 			if(userAuthService.authUser(email, password)){
 				UserQueryService userQueryService = (UserQueryService)ContextHelper.getBean("userQueryService");
-				session.put("userid", userQueryService.getUserByEmail(email).getId());
-				return "user";
+				User user = userQueryService.getUserByEmail(email);
+				if(user.getStatus() == 1){
+					session.put("userid", userQueryService.getUserByEmail(email).getId());
+					return "user";
+				}else{
+					return "inactive";
+				}
 			}
 		}
 		return "fail";
