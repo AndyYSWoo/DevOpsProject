@@ -33,6 +33,17 @@ private SessionFactory sessionFactory;
 		return list;
 	}
 	
+	public ArrayList<Responsible> getResponsibleByFollowerId(int followerId){
+		ArrayList<Responsible> list = new ArrayList<Responsible>();
+		Session session = sessionFactory.openSession();
+		String hql = "FROM Risk WHERE user_id = "+ followerId;
+		Query query = session.createQuery(hql);
+		List<?> resultList = query.list();
+		for(Object result : resultList){
+			list.add((Responsible)result);
+		}
+		return list;
+	}
 	public SessionFactory getSessionFactory() {
 		return sessionFactory;
 	}
