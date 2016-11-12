@@ -157,6 +157,22 @@
   <script src="../js/admin/calendar/fullcalendar.min.js"></script>
   <!-- pace -->
   <script src="../js/admin/pace/pace.min.js"></script>
+
+  <!-- Datatables-->
+  <script src="../js/admin/datatables/jquery.dataTables.min.js"></script>
+  <script src="../js/admin/datatables/dataTables.bootstrap.js"></script>
+  <script src="../js/admin/datatables/dataTables.buttons.min.js"></script>
+  <script src="../js/admin/datatables/dataTables.fixedHeader.min.js"></script>
+  <script src="../js/admin/datatables/dataTables.scroller.min.js"></script>
+
+  <script type="text/javascript">
+      $(document).ready(function() {
+        var table = $('#user-datatable').DataTable({
+          fixedHeader: true,
+        });
+      });
+  </script>
+
   
 
         <script src="../js/highcharts/highcharts.js"></script>
