@@ -31,7 +31,7 @@ public class RiskEntry {
 	int thresholdId;
 	int descriptionId;
 	int changerId;
-	int status;
+	int status;// 0: Unassigned, 1: Processing, 2: Closed
 	Date createdTime;
 	// necessary?
 	@ManyToOne @JoinColumn(name="riskId", insertable=false, updatable=false)

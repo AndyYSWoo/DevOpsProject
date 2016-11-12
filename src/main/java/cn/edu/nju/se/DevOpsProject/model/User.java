@@ -14,8 +14,8 @@ public class User {
 	String name;
 	String email;
 	String psw;
-	int role;
-	int status;
+	int role;// 0: PM, 1: RD
+	int status;// 0: inactive, 1: active
 	public int getId() {
 		return id;
 	}
