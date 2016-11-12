@@ -51,10 +51,31 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 	
+	<bean id="adminDao" class="cn.edu.nju.se.DevOpsProject.dao.AdminDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<bean id="adminAuthService" class="cn.edu.nju.se.DevOpsProject.service.AdminAuthService">
+		<property name="adminDao" ref="adminDao" />
+    </bean>
+    
+    <bean id="userDao" class="cn.edu.nju.se.DevOpsProject.dao.UserDao">
+   		<property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    
+    <bean id="userAuthService" class="cn.edu.nju.se.DevOpsProject.service.UserAuthService">
+    	<property name="userDao" ref="userDao" />
+    </bean>
+
 	<bean id="riskEntryDao" class="cn.edu.nju.se.DevOpsProject.dao.RiskEntryDao">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 	
+	<bean id="managerService" class="cn.edu.nju.se.DevOpsProject.service.ManagerService">
+		<property name="riskDao" ref="riskDao"/>
+		<property name="responsibleDao" ref="responsibleDao"/>
+		<property name="riskEntryDao" ref="riskEntryDao"/>
+	</bean>
 
 
 	<!-- 定义 Autowired 自动注入 bean -->
