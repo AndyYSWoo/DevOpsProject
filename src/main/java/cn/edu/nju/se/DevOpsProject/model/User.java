@@ -15,6 +15,7 @@ public class User {
 	String email;
 	String psw;
 	int role;
+	int status;
 	public int getId() {
 		return id;
 	}
