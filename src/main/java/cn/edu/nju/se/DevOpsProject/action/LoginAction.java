@@ -6,5 +6,6 @@ public class LoginAction {
 	}
 	public String postLogin() throws Exception{
 		
+		return "fail";
 	}
 }
