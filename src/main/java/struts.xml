@@ -39,4 +39,20 @@
 		</action>
 		 -->
 	</package>
+	
+	<package name="manager" namespace="/Manager" extends="struts-default">
+		<result-types>
+		    <result-type name="json" class="org.apache.struts2.json.JSONResult"/>
+		</result-types>
+		<action name="manage" class="cn.edu.nju.se.DevOpsProject.action.ManagerAction" method="manage">
+			<result name="manage">/manager/manage.jsp</result>
+		</action>
+		<action name="createRisk" class="cn.edu.nju.se.DevOpsProject.action.ManagerAction" method="createRisk">
+			<result name="success" type="redirect">/Manager/manage</result>
+		</action>
+		<action name="createResponsible" class="cn.edu.nju.se.DevOpsProject.action.ManagerAction" method="createResponsible">
+			<result name="success" type="redirect">/Manager/manage</result>
+		</action>
+		
+	</package>
 </struts>
