@@ -22,7 +22,11 @@ public class FollowerAction extends BaseAction {
 //		memberNum = memberDao.getMemberAmount();
 		return "homePage";
 	}
+	public String riskDetail() throws Exception{
+		return "riskDetail";
+	}
 	public String addEntry() throws Exception{
 		
+		return "addEntry";
 	}
 }
