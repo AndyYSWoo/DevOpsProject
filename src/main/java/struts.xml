@@ -29,18 +29,9 @@
 		</action>
 		
 		<!-- 登录post -->
-		<!-- 
-		<action name="verify" class="me.yongshang.desserthouse.action.LoginAction" method="postLogin">
-			<result name="userhome" type="redirect">/User/shopList.action</result>
+		<action name="verify" class="cn.edu.nju.se.DevOpsProject.action.LoginAction" method="postLogin">
 			<result name="adminhome" type="redirect">/Admin/home</result>
-			<result name="zwaiterhome" type="redirect">/ZWaiter/planList</result>
-			<result name="fwaiterhome" type="redirect">/FWaiter/sale</result>
-			<result name="managerhome" type="redirect">/Manager/planList</result>
-			<result name="stop">/user/stop.jsp</result>
-			<result name="card" type="redirect">/User/cardList</result>
-			<result name="fail">/user/fail.jsp</result>
 		</action>
-		 -->
 		<!-- 登出 -->
 		<!-- 
 		<action name="logout" class="me.yongshang.desserthouse.action.LoginAction" method="logOut">

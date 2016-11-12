@@ -43,7 +43,7 @@
 					<h4>
 						Managed Risks, Better Product.
 					</h4>
-					 <form action="/DessertHouse/User/verify" method="post" class="margin-base-vertical">
+					 <form action="/DevOpsProject/User/verify" method="post" class="margin-base-vertical">
 						<p class="input-group">
 							<span class="input-group-addon"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></span>
 							<input type="email" class="form-control input-lg" name="email" placeholder="username@risk.org" />
