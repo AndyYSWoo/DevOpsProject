@@ -26,6 +26,30 @@ public class UserDao {
 		return users;
 	}
 	
+	public List<User> getActiveUsers(){
+		List<User> users = new ArrayList<>();
+		Session session = sessionFactory.openSession();
+		String hql = "FROM User WHERE status=1";
+		Query query = session.createQuery(hql);
+		List<?> results = query.list();
+		for(Object result : results){
+			users.add((User)result);
+		}
+		return users;
+	}
+	
+	public List<User> getInactiveUsers(){
+		List<User> users = new ArrayList<>();
+		Session session = sessionFactory.openSession();
+		String hql = "FROM User WHERE status=0";
+		Query query = session.createQuery(hql);
+		List<?> results = query.list();
+		for(Object result : results){
+			users.add((User)result);
+		}
+		return users;
+	}
+	
 	public User getUserById(String id){
 		Session session = sessionFactory.openSession();
 		Criteria criteria = session.createCriteria(User.class);

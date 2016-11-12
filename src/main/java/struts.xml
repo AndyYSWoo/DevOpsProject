@@ -21,6 +21,7 @@
 			<result name="user" type="redirect">/</result>
 			<result name="fail">/user/fail.jsp</result>
 			<result name="inactive">/user/inactive.jsp</result>
+			<result name="manager" type="redirect">/Manager/manage</result>
 		</action>
 		<!-- 登出 -->
 		<action name="logout" class="cn.edu.nju.se.DevOpsProject.action.LoginAction" method="logOut">

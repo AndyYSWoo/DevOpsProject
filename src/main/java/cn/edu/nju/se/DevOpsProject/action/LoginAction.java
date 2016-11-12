@@ -23,7 +23,11 @@ public class LoginAction extends BaseAction{
 				User user = userQueryService.getUserByEmail(email);
 				if(user.getStatus() == 1){
 					session.put("userid", userQueryService.getUserByEmail(email).getId());
-					return "user";
+					if(user.getRole() == 0){
+						return "manager";
+					}else{
+						return "user";
+					}
 				}else{
 					return "inactive";
 				}
