@@ -24,10 +24,9 @@ public class Risk {
 	int id;
 	String title;
 	String content;
-	@Column(name="submitter_id")
 	int submitterId;
 	@Fetch(FetchMode.SELECT)
-	@OneToMany(fetch=FetchType.EAGER, targetEntity=RiskEntry.class, cascade=CascadeType.ALL, mappedBy="risk_id")
+	@OneToMany(fetch=FetchType.EAGER, targetEntity=RiskEntry.class, cascade=CascadeType.ALL, mappedBy="riskId")
 	@OrderBy("id DESC")
 	List<RiskEntry> entries;
 	public int getId() {

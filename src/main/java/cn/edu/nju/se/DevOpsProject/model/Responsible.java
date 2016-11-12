@@ -13,15 +13,13 @@ import javax.persistence.Table;
 public class Responsible {
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	int id;
-	@Column(name="risk_entry_id")
 	int riskEntryId;
-	@Column(name="user_id")
 	int userId;
 	// necessary?
-	@ManyToOne @JoinColumn(name="risk_entry_id", insertable=false, updatable=false)
+	@ManyToOne @JoinColumn(name="riskEntryId", insertable=false, updatable=false)
 	RiskEntry riskEntry;
 	
-	@ManyToOne @JoinColumn(name="user_id", insertable=false, updatable=false)
+	@ManyToOne @JoinColumn(name="userId", insertable=false, updatable=false)
 	User user;
 	public int getId() {
 		return id;

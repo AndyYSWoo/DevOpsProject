@@ -56,6 +56,14 @@ public class ManagerService {
 	public void setResponsibleDao(ResponsibleDao responsibleDao) {
 		this.responsibleDao = responsibleDao;
 	}
+
+	public RiskEntryDao getRiskEntryDao() {
+		return riskEntryDao;
+	}
+
+	public void setRiskEntryDao(RiskEntryDao riskEntryDao) {
+		this.riskEntryDao = riskEntryDao;
+	}
 	
 	
 }

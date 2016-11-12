@@ -25,31 +25,26 @@ import org.hibernate.annotations.FetchMode;
 public class RiskEntry {
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	int id;
-	@Column(name="risk_id")
 	int riskId;
 	int possibility;
 	int influence;
-	@Column(name="threshold_id")
 	int thresholdId;
-	@Column(name="description_id")
 	int descriptionId;
-	@Column(name="changer_id")
 	int changerId;
 	int status;
-	@Column(name="created_time")
 	Date createdTime;
 	// necessary?
-	@ManyToOne @JoinColumn(name="risk_id", insertable=false, updatable=false)
+	@ManyToOne @JoinColumn(name="riskId", insertable=false, updatable=false)
 	Risk risk;
 	
 	@Fetch(FetchMode.SELECT)
-	@OneToMany(fetch=FetchType.EAGER,targetEntity=Responsible.class, cascade=CascadeType.ALL, mappedBy="risk_entry_id")
+	@OneToMany(fetch=FetchType.EAGER,targetEntity=Responsible.class, cascade=CascadeType.ALL, mappedBy="riskEntryId")
 	List<Responsible> responsibles;
 	
-	@ManyToOne @JoinColumn(name="description_id", insertable=false, updatable=false)
+	@ManyToOne @JoinColumn(name="descriptionId", insertable=false, updatable=false)
 	Description description;
 	
-	@ManyToOne @JoinColumn(name="threshold_id", insertable=false, updatable=false)
+	@ManyToOne @JoinColumn(name="thresholdId", insertable=false, updatable=false)
 	Threshold threshold;
 	public int getId() {
 		return id;
