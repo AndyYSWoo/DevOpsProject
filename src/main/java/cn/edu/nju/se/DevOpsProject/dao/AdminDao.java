@@ -23,4 +23,10 @@ public class AdminDao {
 			return ((Admin)list.get(0));
 		}
 	}
+	public SessionFactory getSessionFactory() {
+		return sessionFactory;
+	}
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
+	}
 }

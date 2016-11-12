@@ -58,6 +58,14 @@
 	<bean id="adminAuthService" class="cn.edu.nju.se.DevOpsProject.service.AdminAuthService">
 		<property name="adminDao" ref="adminDao" />
     </bean>
+    
+    <bean id="userDao" class="cn.edu.nju.se.DevOpsProject.dao.UserDao">
+   		<property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+    
+    <bean id="userAuthService" class="cn.edu.nju.se.DevOpsProject.service.UserAuthService">
+    	<property name="userDao" ref="userDao" />
+    </bean>
 
 	<bean id="riskEntryDao" class="cn.edu.nju.se.DevOpsProject.dao.RiskEntryDao">
 		<property name="sessionFactory" ref="sessionFactory" />
