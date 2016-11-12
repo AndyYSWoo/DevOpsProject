@@ -18,11 +18,10 @@ public class LoginAction extends BaseAction{
 		}else{
 			UserAuthService userAuthService = (UserAuthService)ContextHelper.getBean("userAuthService");
 			if(userAuthService.authUser(email, password)){
+				UserQueryService userQueryService = (UserQueryService)ContextHelper.getBean("userQueryService");
+				session.put("userid", userQueryService.getUserByEmail(email).getId());
 				return "user";
 			}
-			UserQueryService userQueryService = (UserQueryService)ContextHelper.getBean("userQueryService");
-			
-			session.put("userid", userQueryService.getUserByEmail(email).getId());
 		}
 		return "fail";
 	}
