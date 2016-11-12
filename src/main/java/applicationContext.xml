@@ -42,6 +42,15 @@
 		</property>
 	</bean>
 	
+	
+	<bean id="riskDao" class="cn.edu.nju.se.DevOpsProject.dao.RiskDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="responsibleDao" class="cn.edu.nju.se.DevOpsProject.dao.ResponsibleDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
 
 
 	<!-- 定义 Autowired 自动注入 bean -->
