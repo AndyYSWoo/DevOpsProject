@@ -46,4 +46,11 @@ public class User {
 	public void setRole(int role) {
 		this.role = role;
 	}
+	public int getStatus() {
+		return status;
+	}
+	public void setStatus(int status) {
+		this.status = status;
+	}
+	
 }

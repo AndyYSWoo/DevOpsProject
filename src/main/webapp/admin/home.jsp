@@ -1,34 +1,36 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <!-- Meta, title, CSS, favicons, etc. -->
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <title> User Overview </title>
-
-  <!-- Bootstrap core CSS -->
-
-  <link href="../css/bootstrap.min.css" rel="stylesheet">
-  <link href='http://fonts.googleapis.com/css?family=Abel|Open+Sans:400,600' rel='stylesheet'>
-  <link href="../font/admin//css/font-awesome.min.css" rel="stylesheet">
-  <link href="../css/admin/animate.min.css" rel="stylesheet">
-
-  <link href="../css/admin/select/select2.min.css" rel="stylesheet">
-  <!-- Custom styling plus plugins -->
-  <link href="../css/admin/custom.css" rel="stylesheet">
-  <link href="../css/admin/icheck/flat/green.css" rel="stylesheet">
-
-  <script src="../js/jquery_min.js"></script>
-  <style type="text/css">
-  	body{
-  		font-family: "Open Sans",serif;
-  	}
-  	
-  </style>
-</head>
+	<head>
+	  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	  <!-- Meta, title, CSS, favicons, etc. -->
+	  <meta charset="utf-8">
+	  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	  <title> Active Users Overview </title>
+	
+	  <!-- Bootstrap core CSS -->
+	
+	  <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
+	  <link href='http://fonts.googleapis.com/css?family=Abel|Open+Sans:400,600' rel='stylesheet'>
+	  <link href="${pageContext.request.contextPath}/font/admin//css/font-awesome.min.css" rel="stylesheet">
+	  <link href="${pageContext.request.contextPath}/css/admin/animate.min.css" rel="stylesheet">
+	
+	  <link href="${pageContext.request.contextPath}/css/admin/select/select2.min.css" rel="stylesheet">
+	  <!-- Custom styling plus plugins -->
+	  <link href="${pageContext.request.contextPath}/css/admin/custom.css" rel="stylesheet">
+	  <link href="${pageContext.request.contextPath}/css/admin/icheck/flat/green.css" rel="stylesheet">
+	
+	  <script src="${pageContext.request.contextPath}/js/jquery_min.js"></script>
+	  <style type="text/css">
+	  	body{
+	  		font-family: "Open Sans",serif;
+	  	}
+	  	
+	  </style>
+	</head>
 <body class="nav-md">
   <div class="container body">
     <div class="main_container">
@@ -41,7 +43,7 @@
           <!-- menu prile quick info -->
           <div class="profile">
             <div class="profile_pic">
-              <img src="../img/user_normal.png" alt="..." class="img-circle profile_img">
+              <img src="${pageContext.request.contextPath}/img/user_normal.png" alt="..." class="img-circle profile_img">
             </div>
             <div class="profile_info">
               <span>Welcome,</span>
@@ -79,11 +81,11 @@
             <ul class="nav navbar-nav navbar-right">
               <li class="">
                 <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                  <img src="../img/user_normal.png" alt="">Admin
+                  <img src="${pageContext.request.contextPath}/img/user_normal.png" alt="">Admin
                   <span class=" fa fa-angle-down"></span>
                 </a>
                 <ul class="dropdown-menu dropdown-usermenu pull-right">
-                  <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                  <li><a href="/DevOpsProject/User/logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                   </li>
                 </ul>
               </li>
@@ -94,7 +96,7 @@
       <!-- /top navigation -->
       
       <!-- page content -->
-      <div class="right_col" role="main" style="min-height: 720px;">
+      <div class="right_col" role="main" style="height: 700px;">
         
         <div class="">
 
@@ -103,7 +105,7 @@
               <div class="x_panel">
                 <div class="row x_title">
                   <div class="col-md-6">
-                    <h3>Users Overview</h3>
+                    <h3>Active Users Overview</h3>
                   </div>
                   <div class="col-md-offset-4 col-md-2" style="padding-top: 1%;">
                   	<a id="add-user" href="#" data-toggle="modal" data-target="#add-developer">
@@ -208,23 +210,23 @@
   </div>
 
 
-  <script src="../js/bootstrap.js"></script>
+  <script src="${pageContext.request.contextPath}/js/bootstrap.js"></script>
 
   <!-- bootstrap progress js -->
   <!-- icheck -->
-  <script src="../js/admin/icheck/icheck.min.js"></script>
+  <script src="${pageContext.request.contextPath}/js/admin/icheck/icheck.min.js"></script>
 
-  <script src="../js/admin/custom.js"></script>
+  <script src="${pageContext.request.contextPath}/js/admin/custom.js"></script>
 
   <!-- pace -->
-  <script src="../js/admin/pace/pace.min.js"></script>
+  <script src="${pageContext.request.contextPath}/js/admin/pace/pace.min.js"></script>
 
   <!-- Datatables-->
-  <script src="../js/admin/datatables/jquery.dataTables.min.js"></script>
-  <script src="../js/admin/datatables/dataTables.bootstrap.js"></script>
-  <script src="../js/admin/datatables/dataTables.buttons.min.js"></script>
-  <script src="../js/admin/datatables/dataTables.fixedHeader.min.js"></script>
-  <script src="../js/admin/datatables/dataTables.scroller.min.js"></script>
+  <script src="${pageContext.request.contextPath}/js/admin/datatables/jquery.dataTables.min.js"></script>
+  <script src="${pageContext.request.contextPath}/js/admin/datatables/dataTables.bootstrap.js"></script>
+  <script src="${pageContext.request.contextPath}/js/admin/datatables/dataTables.buttons.min.js"></script>
+  <script src="${pageContext.request.contextPath}/js/admin/datatables/dataTables.fixedHeader.min.js"></script>
+  <script src="${pageContext.request.contextPath}/js/admin/datatables/dataTables.scroller.min.js"></script>
 
   <script type="text/javascript">
       $(document).ready(function() {
@@ -233,8 +235,8 @@
   </script>
 
   <!-- /datepicker -->
-        <script src="../js/highcharts/highcharts.js"></script>
-        <script src="../js/highcharts/modules/data.js"></script>
-        <script src="../js/highcharts/modules/drilldown.js"></script>
+        <script src="${pageContext.request.contextPath}/js/highcharts/highcharts.js"></script>
+        <script src="${pageContext.request.contextPath}/js/highcharts/modules/data.js"></script>
+        <script src="${pageContext.request.contextPath}/js/highcharts/modules/drilldown.js"></script>
 </body>
 </html>
