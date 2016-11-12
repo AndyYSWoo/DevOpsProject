@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Fetch;
@@ -27,6 +28,7 @@ public class Risk {
 	int submitterId;
 	@Fetch(FetchMode.SELECT)
 	@OneToMany(fetch=FetchType.EAGER, targetEntity=RiskEntry.class, cascade=CascadeType.ALL, mappedBy="risk_id")
+	@OrderBy("id DESC")
 	List<RiskEntry> entries;
 	public int getId() {
 		return id;

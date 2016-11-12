@@ -33,7 +33,15 @@ public class ManagerService {
 	public void getAllRisk(ArrayList<Risk> riskOfNewCreated,
 			ArrayList<Risk> riskOfProcessing, ArrayList<Risk> riskOfclosed,int submitterId) {
 		ArrayList<Risk> list = riskDao.getRisksBysubmitterId(submitterId);
-		//TODO 
+		for(Risk risk:list){
+			if(risk.getEntries().get(0).getStatus()==0){
+				riskOfNewCreated.add(risk);
+			}else if(risk.getEntries().get(0).getStatus()==1){
+				riskOfProcessing.add(risk);
+			}else{
+				riskOfclosed.add(risk);
+			}
+		}
 	}
 	
 	public RiskDao getRiskDao() {
