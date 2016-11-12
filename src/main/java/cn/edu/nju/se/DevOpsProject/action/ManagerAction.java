@@ -6,7 +6,7 @@ import cn.edu.nju.se.DevOpsProject.model.Risk;
 import cn.edu.nju.se.DevOpsProject.service.ManagerService;
 import cn.edu.nju.se.DevOpsProject.util.ContextHelper;
 
-public class ManagerAction {
+public class ManagerAction extends BaseAction{
 	ArrayList<Risk> riskOfNewCreated;
 	ArrayList<Risk> riskOfProcessing;
 	ArrayList<Risk> riskOfclosed;
@@ -16,8 +16,8 @@ public class ManagerAction {
 		riskOfNewCreated = new ArrayList<Risk>();
 		riskOfProcessing = new ArrayList<Risk>();
 		riskOfclosed = new ArrayList<Risk>();
-		managerService.getAllRisk(riskOfNewCreated,riskOfProcessing,riskOfclosed);
-		
+		int userId = (int)session.get("userid");
+		managerService.getAllRisk(riskOfNewCreated,riskOfProcessing,riskOfclosed,userId);	
 		return "manage";
 	}
 	

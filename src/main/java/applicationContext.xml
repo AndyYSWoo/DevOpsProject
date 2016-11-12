@@ -59,6 +59,11 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 	
+	<bean id="managerService" class="cn.edu.nju.se.DevOpsProject.service.ManagerService">
+		<property name="riskDao" ref="riskDao"/>
+		<property name="responsibleDao" ref="responsibleDao"/>
+		<property name="riskEntryDao" ref="riskEntryDao"/>
+	</bean>
 
 
 	<!-- 定义 Autowired 自动注入 bean -->
