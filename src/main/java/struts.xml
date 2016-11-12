@@ -12,32 +12,20 @@
 	</package>
 	 -->
 	<package name="user" namespace="/User" extends="struts-default">
-
-		<!-- 注册get -->
-		<!-- 
-		<action name="getRegister" class="me.yongshang.desserthouse.action.RegisterAction" method="getRegister">
-			<result name="register">/user/register.jsp</result>
-		</action>
-		<action name="postRegister" class="me.yongshang.desserthouse.action.RegisterAction" method="postRegister">
-			<result name="success" type="redirect">/User/cardList</result>
-		</action>
-		 -->
 		<!-- 登录get -->
-		
 		<action name="login" class="cn.edu.nju.se.DevOpsProject.action.LoginAction" method="getLogin">
 			<result name="login">/user/login.jsp</result>
 		</action>
-		
 		<!-- 登录post -->
 		<action name="verify" class="cn.edu.nju.se.DevOpsProject.action.LoginAction" method="postLogin">
-			<result name="adminhome" type="redirect">/Admin/home</result>
+			<result name="admin" type="redirect">/Admin/home</result>
+			<result name="user" type="redirect">/</result>
+			<result name="fail">/user/fail.jsp</result>
 		</action>
 		<!-- 登出 -->
-		<!-- 
-		<action name="logout" class="me.yongshang.desserthouse.action.LoginAction" method="logOut">
+		<action name="logout" class="cn.edu.nju.se.DevOpsProject.action.LoginAction" method="logOut">
 			<result name="out" type="redirect">/User/login</result>
 		</action>
-		 -->
 	</package>
 	
 	<package name="manager" namespace="/Manager" extends="struts-default">
