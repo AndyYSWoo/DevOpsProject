@@ -10,6 +10,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 import javax.persistence.Table;
@@ -33,6 +35,10 @@ public class Risk {
 	@Fetch(FetchMode.SELECT)
 	@OneToMany(fetch=FetchType.EAGER, targetEntity=Responsible.class, cascade=CascadeType.ALL, mappedBy="riskId")
 	List<Responsible> responsibles;
+	
+	@ManyToOne @JoinColumn(name="submitterId", insertable=false, updatable=false)
+	User submitter;
+	
 	public int getId() {
 		return id;
 	}
@@ -68,5 +74,11 @@ public class Risk {
 	}
 	public void setResponsibles(List<Responsible> responsibles) {
 		this.responsibles = responsibles;
+	}
+	public User getSubmitter() {
+		return submitter;
+	}
+	public void setSubmitter(User submitter) {
+		this.submitter = submitter;
 	}
 }
