@@ -121,6 +121,7 @@
                         <th>ID</th>
                         <th>Name</th>
                         <th>E-mail</th>
+                        <th>Role</th>
                         <th></th>
                       </tr>
                     </thead>
@@ -132,7 +133,20 @@
                         <td style="text-align: center;"><a href="#">Disable</a></td>
                       </tr>
                       <s:iterator value="users">
-                      
+                      	<td>
+                      		<s:property value="id"/>
+                      	</td>
+                    	<td>
+                      		<s:property value="name"/>
+                      	</td>
+                      	<td>
+                      		<s:property value="email"/>
+                      	</td>
+                      	<td>
+                      		<s:if test="%{role==0}">Manager</s:if>
+                      		<s:else>Developer</s:else>
+                      	</td>
+                      	<td style="text-align: center;"><a href="#">Disable</a></td>
                       </s:iterator>
                     </tbody>
                   </table>
