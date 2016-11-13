@@ -9,7 +9,7 @@ public class RiskEntryDao {
 	private SessionFactory sessionFactory;
 	public void createEntry(RiskEntry entry){
 		Session session = sessionFactory.openSession();
-		
+		System.out.println(entry.getDescriptionId()+"!!!!!!!!!!!!!!!!!!!!!");
 		Transaction tx = session.beginTransaction();
 		session.save(entry);
 		tx.commit();

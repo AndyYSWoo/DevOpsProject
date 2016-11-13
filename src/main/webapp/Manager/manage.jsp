@@ -231,7 +231,7 @@
                             <label class="control-label col-md-2 col-sm-2 col-xs-12">Context
                             </label>
                             <div class="col-md-9 col-sm-9 col-xs-12">
-                              <textarea class="form-control" rows="3" placeholder='Risk context...' name="context"></textarea>
+                              <textarea class="form-control" rows="3" placeholder='Risk context...' name="content"></textarea>
                             </div>
                           </div>
 		                      <div class="form-group">
@@ -259,7 +259,7 @@
                           <div class="form-group">
                             <label class="control-label col-md-2 col-sm-2 col-xs-12">Influence Level</label>
                             <div class="col-md-9 col-sm-9 col-xs-12">
-                                <select class="form-control" name="influenceLevel">
+                                <select class="form-control" name="influence">
                                   <option value="0">0</option>
                                   <option value="1">1</option>
                                   <option value="2">2</option>
