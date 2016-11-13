@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,7 +48,7 @@
             </div>
             <div class="profile_info">
               <span>Welcome,</span>
-              <h2>Manager Admin</h2>
+              <h2>Manager ${user.name}</h2>
             </div>
           </div>
           <!-- /menu prile quick info -->
@@ -74,7 +77,7 @@
             <ul class="nav navbar-nav navbar-right">
               <li class="">
                 <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                  <img src="../img/user_normal.png" alt="">Admin
+                  <img src="../img/user_normal.png" alt="">${user.name}
                   <span class=" fa fa-angle-down"></span>
                 </a>
                 <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -99,7 +102,7 @@
               <div class="x_panel">
                 <div class="row x_title">
                   <div class="col-md-6">
-                    <h3>Risks Title</h3>
+                    <h3>Risks Title : ${currentRisk.title}</h3>
                     <span class="label label-success" style="color:white;"><i class="fa fa-warning"></i> Open</span>
                   </div>
                   
@@ -108,8 +111,7 @@
                   <div class="row">
                     <div class="col-md-9">
                       <blockquote>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
-                        posuere erat a ante Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                      <p>${currentRisk.content}.</p>
                       </blockquote>
                       <div class="ln_solid"></div>
                       <div>
@@ -117,19 +119,19 @@
                           <div class="form-group">
                             <h4><label class="control-label col-md-2 col-sm-2 col-xs-12">Possibility</label></h4>
                             <div class="col-md-9 col-sm-9 col-xs-12">
-                              <h5>High</h5>
+                              <h5>${currentRisk.entries.get(0).possibility}</h5>
                             </div>
                           </div>
                           <div class="form-group">
                             <h4><label class="control-label col-md-2 col-sm-2 col-xs-12">Influence Level</label></h4>
                             <div class="col-md-9 col-sm-9 col-xs-12">
-                              <h5>1</h5>
+                              <h5>${currentRisk.entries.get(0).influence}</h5>
                             </div>
                           </div>
                           <div class="form-group">
                             <h4><label class="control-label col-md-2 col-sm-2 col-xs-12">Threshold</label></h4>
                             <div class="col-md-9 col-sm-9 col-xs-12">
-                              <h5>Posuere erat a ante Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</h5>
+                              <h5>${currentRisk.entries.get(0).threshold.content}</h5>
                             </div>
                           </div>
                         </form>
@@ -155,7 +157,7 @@
               <h4 class="modal-title">Assign To</h4>
             </div>
             <div class="modal-body">
-              <form>
+              <form actiom="/DevOpsProject/Manager/createResponsible">
               <table class="table table-striped responsive-utilities jambo_table">
                 <thead>
                   <tr class="headings">
@@ -167,27 +169,17 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td class="a-center ">
-                      <input type="checkbox" class="flat" name="members" value="1">
-                    </td>
-                    <td class=" ">121000040</td>
-                    <td class=" ">May</td>
-                  </tr>
-                  <tr>
-                    <td class="a-center ">
-                      <input type="checkbox" class="flat" name="members" value="2">
-                    </td>
-                    <td class=" ">121000040</td>
-                    <td class=" ">May</td>
-                  </tr>
-                  <tr>
-                    <td class="a-center ">
-                      <input type="checkbox" class="flat" name="members" value="3">
-                    </td>
-                    <td class=" ">121000040</td>
-                    <td class=" ">May</td>
-                  </tr>
+                	<s:iterator value="userlist">
+                		<tr>
+                    	<td class="a-center ">
+                      		<input type="checkbox" class="flat" name="userIds[]" value=<s:property value="id"/>>
+                    	</td>
+                    		<td class=" "><s:property value="id"/></td>
+                    		<td class=" "><s:property value="name"/></td>
+                  		</tr>
+                     </s:iterator>
+                  
+                 
                 </tbody>
               </table>
               <div class="ln_solid"></div>
@@ -240,6 +232,7 @@
         $('#closed-datatable').DataTable();
       });
   </script>
+  
 
   <!-- /datepicker -->
         <script src="../js/highcharts/highcharts.js"></script>

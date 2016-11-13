@@ -10,6 +10,7 @@ import java.util.List;
 
 
 
+
 import cn.edu.nju.se.DevOpsProject.dao.UserDao;
 import cn.edu.nju.se.DevOpsProject.model.Risk;
 import cn.edu.nju.se.DevOpsProject.model.RiskEntry;
@@ -22,12 +23,15 @@ public class ManagerAction extends BaseAction{
 	private ArrayList<Risk> riskOfNewCreated;
 	private ArrayList<Risk> riskOfProcessing;
 	private ArrayList<Risk> riskOfclosed;
-	private ArrayList<Integer> userIds;
+	private ArrayList<User> userlist;
 	private String content;
 	private String title;
 	private String threshold;
 	private int influence;
 	private int possibility;
+	private Risk currentRisk;
+	private User user;
+	private List<Integer> userIds;
 	
 	public String manage() throws Exception{
 		ManagerService managerService = (ManagerService)ContextHelper.getBean("managerService");
@@ -40,14 +44,9 @@ public class ManagerAction extends BaseAction{
 		}catch(Exception e){
 			return "login";
 		}
-		managerService.getAllRisk(riskOfNewCreated,riskOfProcessing,riskOfclosed,userId);	
+		managerService.getAllRisk(riskOfNewCreated,riskOfProcessing,riskOfclosed,userId);
 		UserDao userdao = (UserDao)ContextHelper.getBean("userDao");
-		List<User> users = userdao.getAllUsers();
-		for(User user:users){
-			if(user.getRole()==1){
-				userIds.add(user.getId());
-			}
-		}
+		user = userdao.getUserById(userId);
 		return "manage";
 	}
 	
@@ -66,6 +65,37 @@ public class ManagerAction extends BaseAction{
 		ManagerService managerService = (ManagerService)ContextHelper.getBean("managerService");
 		managerService.createNewRisk(risk,thre,riskEntry);
 		return "success";
+	}
+	
+	public String riskDetail() throws Exception{
+		manage();
+		int riskId = Integer.parseInt(request.getParameter("riskId"));
+		for(Risk r:riskOfNewCreated){
+			if(r.getId()==riskId){
+				currentRisk = r;
+				UserDao userdao = (UserDao)ContextHelper.getBean("userDao");
+				List<User> users = userdao.getAllUsers();
+				for(User user:users){
+					if(user.getRole()==1){
+						userlist.add(user);
+					}
+				}
+				return "manager_assign";
+			}
+		}
+		for(Risk r:riskOfProcessing){
+			if(r.getId()==riskId){
+				currentRisk = r;
+				return "manager_see_processing";
+			}
+		}
+		for(Risk r:riskOfclosed){
+			if(r.getId()==riskId){
+				currentRisk = r;
+				return "manager_see_closed";
+			}
+		}
+		return "risk_detail";
 	}
 	
 	public String createResponsible() throws Exception{
@@ -106,15 +136,6 @@ public class ManagerAction extends BaseAction{
 		this.riskOfclosed = riskOfclosed;
 	}
 
-
-	public ArrayList<Integer> getUserIds() {
-		return userIds;
-	}
-
-
-	public void setUserIds(ArrayList<Integer> userIds) {
-		this.userIds = userIds;
-	}
 
 
 	public String getContent() {
@@ -164,6 +185,46 @@ public class ManagerAction extends BaseAction{
 
 	public void setPossibility(int possibility) {
 		this.possibility = possibility;
+	}
+
+
+	public Risk getCurrentRisk() {
+		return currentRisk;
+	}
+
+
+	public void setCurrentRisk(Risk currentRisk) {
+		this.currentRisk = currentRisk;
+	}
+
+
+	public User getUser() {
+		return user;
+	}
+
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+
+	public ArrayList<User> getUserlist() {
+		return userlist;
+	}
+
+
+	public void setUserlist(ArrayList<User> userlist) {
+		this.userlist = userlist;
+	}
+
+
+	public void setUserIds(List<Integer> userIds) {
+		this.userIds = userIds;
+	}
+
+
+	public List<Integer> getUserIds() {
+		return userIds;
 	}
 	
 	

@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +10,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title> Closed Risk </title>
+  <title> Processing Risk </title>
 
   <!-- Bootstrap core CSS -->
 
@@ -45,7 +48,7 @@
             </div>
             <div class="profile_info">
               <span>Welcome,</span>
-              <h2>Manager Admin</h2>
+              <h2>Manager ${user.name}</h2>
             </div>
           </div>
           <!-- /menu prile quick info -->
@@ -72,7 +75,7 @@
             <ul class="nav navbar-nav navbar-right">
               <li class="">
                 <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                  <img src="../img/user_normal.png" alt="">Admin
+                  <img src="../img/user_normal.png" alt="">${user.name}
                   <span class=" fa fa-angle-down"></span>
                 </a>
                 <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -112,7 +115,7 @@
                       </li>
                       <li class="hidden-phone">
                         <span class="name"> status </span>
-                        <span class="value text-success"> Closed </span>
+                        <span class="value text-success"> Processing </span>
                       </li>
                     </ul>
           <div>

@@ -1,6 +1,7 @@
 package cn.edu.nju.se.DevOpsProject.service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import cn.edu.nju.se.DevOpsProject.dao.ResponsibleDao;
 import cn.edu.nju.se.DevOpsProject.dao.RiskDao;
@@ -26,10 +27,10 @@ public class ManagerService {
 		return true;
 	}
 	
-	public boolean addResponsible(int riskEntryId,ArrayList<Integer> userIds){
+	public boolean addResponsible(int risk,List<Integer> userIds){
 		for(int userid:userIds){
 			Responsible responsible = new Responsible();
-			responsible.setRiskEntryId(riskEntryId);
+			responsible.setRiskId(risk);
 			responsible.setUserId(userid);
 			responsibleDao.creatNewResponsible(responsible);
 		}
