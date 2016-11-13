@@ -24,6 +24,18 @@ public class Responsible {
 	public int getId() {
 		return id;
 	}
+	public RiskEntry getRiskEntry() {
+		return riskEntry;
+	}
+	public void setRiskEntry(RiskEntry riskEntry) {
+		this.riskEntry = riskEntry;
+	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
 	public void setId(int id) {
 		this.id = id;
 	}

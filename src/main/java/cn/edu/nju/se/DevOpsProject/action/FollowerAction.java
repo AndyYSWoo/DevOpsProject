@@ -17,8 +17,9 @@ public class FollowerAction extends BaseAction {
 		System.out.println("userId "+userId);
 		UserDao userDao = (UserDao)ContextHelper.getBean("userDao");
 		user = userDao.getUserById(userId);
-		
-		
+		ResponsibleDao resDao = (ResponsibleDao)ContextHelper.getBean("responsibleDao");
+		resList = resDao.getResponsibleByFollowerId(userId);
+
 		//ResponsibleDao resDao = new ResponsibleDao();
 		//ArrayList<Responsible> resList = resDao.getResponsibleByFollowerId(userId);
 //		ShopDao shopDao = (ShopDao) ContextHelper.getBean("shopDao");

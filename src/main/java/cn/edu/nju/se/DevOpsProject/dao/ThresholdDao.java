@@ -21,8 +21,13 @@ public class ThresholdDao {
 		String sql = "FROM Threshold WHERE content = "+"'"+threshold+"'";
 		Query query = session.createQuery(sql);
 		List<?> resultList = query.list();
+		int id;
 		if(resultList.size() == 0){
-			
+			Threshold thres = new Threshold();
+			thres.setContent(threshold);
+			id = creatNewThreshold(thres);
+		}else{
+			id = ((Threshold)resultList.get(0)).getId();
 		}
 		session.close();
 		return 1;
