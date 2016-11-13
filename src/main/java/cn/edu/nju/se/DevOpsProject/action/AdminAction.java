@@ -23,6 +23,12 @@ public class AdminAction extends BaseAction{
 		
 		UserModService userModService = (UserModService)ContextHelper.getBean("userModService");
 		userModService.updateUser(user);
+		
+		return "success";
+	}
+	
+	public String addUser() throws Exception{
+		
 		return "success";
 	}
 	
