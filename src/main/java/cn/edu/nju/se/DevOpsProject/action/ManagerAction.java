@@ -22,7 +22,12 @@ public class ManagerAction extends BaseAction{
 		riskOfNewCreated = new ArrayList<Risk>();
 		riskOfProcessing = new ArrayList<Risk>();
 		riskOfclosed = new ArrayList<Risk>();
-		int userId = (int)session.get("userid");
+		int userId = 0;
+		try{
+			userId = (int)session.get("userid");
+		}catch(Exception e){
+			return "login";
+		}
 		managerService.getAllRisk(riskOfNewCreated,riskOfProcessing,riskOfclosed,userId);	
 		UserDao userdao = (UserDao)ContextHelper.getBean("userDao");
 		List<User> users = userdao.getAllUsers();
