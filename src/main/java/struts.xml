@@ -8,7 +8,9 @@
 		<action name="home" class="cn.edu.nju.se.DevOpsProject.action.AdminAction" method="home">
 			<result name="homePage">/admin/home.jsp</result>
 		</action>
-		
+		<action name="disable" class="cn.edu.nju.se.DevOpsProject.action.AdminAction" method="disableUser">
+			<result name="success" type="redirect">/Admin/home</result>
+		</action>
 	</package>
 	<package name="user" namespace="/User" extends="struts-default">
 		<!-- 登录get -->

@@ -7,6 +7,7 @@ import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 
 import cn.edu.nju.se.DevOpsProject.model.User;
@@ -74,6 +75,15 @@ public class UserDao {
 		}else {
 			return ((User)list.get(0));
 		}
+	}
+	
+	public void updateUser(User user){
+		Session session = sessionFactory.openSession();
+		Transaction tx = null;
+		tx=session.beginTransaction();
+		session.update(user);
+		tx.commit();
+		session.close();
 	}
 	
 	public SessionFactory getSessionFactory() {

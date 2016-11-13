@@ -70,6 +70,10 @@
     <bean id="userQueryService" class="cn.edu.nju.se.DevOpsProject.service.UserQueryService">
     	<property name="userDao" ref="userDao" />    	
     </bean>
+    
+    <bean id="userModService" class="cn.edu.nju.se.DevOpsProject.service.UserModService">
+    	<property name="userDao" ref="userDao" />    	
+    </bean>
 
 	<bean id="riskEntryDao" class="cn.edu.nju.se.DevOpsProject.dao.RiskEntryDao">
 		<property name="sessionFactory" ref="sessionFactory" />
