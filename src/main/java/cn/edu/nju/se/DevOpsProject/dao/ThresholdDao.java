@@ -34,13 +34,5 @@ public class ThresholdDao {
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
-	public static void main(String[] args){
-		RiskEntry entry = new RiskEntry();
-		entry.setChangerId(1);
-		entry.setId(1);
-		entry.setRiskId(3);
-		RiskEntryDao dao = new RiskEntryDao();
-		dao.createEntry(entry);
-		
-	}
+
 }

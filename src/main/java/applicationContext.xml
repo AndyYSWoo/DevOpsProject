@@ -21,7 +21,7 @@
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url"
-			value="jdbc:mysql://159.203.133.93:3306/DevOpsProject" />
+			value="jdbc:mysql://127.0.0.1:3306/DevOpsProject" />
 		<property name="username" value="root" />
 		<property name="password" value="root" />
 	</bean>
