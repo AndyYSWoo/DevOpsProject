@@ -126,9 +126,17 @@
                         	<tr style="cursor: pointer;">
                         	<td> <s:property value="id"/> </td>
                         	<td><a href="/DevOpsProject/Manager/riskDetail?riskId=<s:property value="id"/>" > <s:property value="title"/></a></td>
-                        	<td><s:property value="submitterId"/></td>
-                        	<td><s:property value="entries.get(0).possibility"/></td>
-                        	<td><s:property value="entries.get(0).influence"/></td>
+                        	<td>${user.name}</td>
+                        	<td>
+                        		<s:if test="%{entries.get(0).possibility==0}">low</s:if>
+                        		<s:elseif test="%{entries.get(0).possibility==1}">medium</s:elseif>
+                        		<s:else>high</s:else>
+                        	</td>	
+                        	<td>
+								<s:if test="%{entries.get(0).influence==0}">low</s:if>
+                        		<s:elseif test="%{entries.get(0).influence==1}">medium</s:elseif>
+                        		<s:else>high</s:else>
+							</td>
                         </tr>
                         </s:iterator>
                        
@@ -160,10 +168,18 @@
                     	<s:iterator value="riskOfProcessing">
                         <tr style="cursor: pointer;">
                         <td><s:property value="id"/></td>
-                        <td><a href="manager_see_processing.html"><s:property value="title"/></a></td>
-                        <td><s:property value="submitterId"/></td>
-                        <td><s:property value="entries.get(0).possibility"/></td>
-                        <td><s:property value="entries.get(0).influence"/></td>
+                        <td><a href="/DevOpsProject/Manager/riskDetail?riskId=<s:property value="id"/>"><s:property value="title"/></a></td>
+                        <td>${user.name}</td>
+                        	<td>
+                        		<s:if test="%{entries.get(0).possibility==0}">low</s:if>
+                        		<s:elseif test="%{entries.get(0).possibility==1}">medium</s:elseif>
+                        		<s:else>high</s:else>
+                        	</td>	
+                        	<td>
+								<s:if test="%{entries.get(0).influence==0}">low</s:if>
+                        		<s:elseif test="%{entries.get(0).influence==1}">medium</s:elseif>
+                        		<s:else>high</s:else>
+							</td>
                         </tr>
                         </s:iterator>
                     </tbody>
@@ -196,10 +212,18 @@
                     	<s:iterator value="riskOfclosed">
                         <tr style="cursor: pointer;">
                         <td><s:property value="id"/></td>
-                        <td><a href="manager_see_closed.html"><s:property value="title"/></a></td>
-                        <td><s:property value="submitterId"/></td>
-                        <td><s:property value="entries.get(0).possibility"/></td>
-                        <td><s:property value="entries.get(0).influence"/></td>
+                        <td><a href="/DevOpsProject/Manager/riskDetail?riskId=<s:property value="id"/>"><s:property value="title"/></a></td>
+                        <td>${user.name}</td>
+                        	<td>
+                        		<s:if test="%{entries.get(0).possibility==0}">low</s:if>
+                        		<s:elseif test="%{entries.get(0).possibility==1}">medium</s:elseif>
+                        		<s:else>high</s:else>
+                        	</td>	
+                        	<td>
+								<s:if test="%{entries.get(0).influence==0}">low</s:if>
+                        		<s:elseif test="%{entries.get(0).influence==1}">medium</s:elseif>
+                        		<s:else>high</s:else>
+							</td>
                         </tr>
                         </s:iterator>
                

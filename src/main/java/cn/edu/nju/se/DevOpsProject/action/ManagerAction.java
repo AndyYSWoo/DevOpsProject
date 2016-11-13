@@ -33,6 +33,7 @@ public class ManagerAction extends BaseAction{
 	private Risk currentRisk;
 	private User user;
 	private List<Integer> userIds;
+	private User follower;
 	
 	public String manage() throws Exception{
 		ManagerService managerService = (ManagerService)ContextHelper.getBean("managerService");
@@ -88,12 +89,16 @@ public class ManagerAction extends BaseAction{
 		for(Risk r:riskOfProcessing){
 			if(r.getId()==riskId){
 				currentRisk = r;
+				UserDao userdao = (UserDao)ContextHelper.getBean("userDao");
+				follower = userdao.getUserById(r.getEntries().get(0).getChangerId());
 				return "manager_see_processing";
 			}
 		}
 		for(Risk r:riskOfclosed){
 			if(r.getId()==riskId){
 				currentRisk = r;
+				UserDao userdao = (UserDao)ContextHelper.getBean("userDao");
+				follower = userdao.getUserById(r.getEntries().get(0).getChangerId());
 				return "manager_see_closed";
 			}
 		}
@@ -227,6 +232,16 @@ public class ManagerAction extends BaseAction{
 
 	public List<Integer> getUserIds() {
 		return userIds;
+	}
+
+
+	public User getFollower() {
+		return follower;
+	}
+
+
+	public void setFollower(User follower) {
+		this.follower = follower;
 	}
 	
 	

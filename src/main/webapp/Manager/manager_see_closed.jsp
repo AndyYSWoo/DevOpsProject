@@ -108,24 +108,36 @@
                       <li>
                         <span class="name"> Possibility </span>
 
-                        <span class="value text-success"> High </span>
+                        <span class="value text-success"> 
+                        	<s:if test="%{currentRisk.entries.get(0).possibility==0}">low</s:if>
+                        	<s:elseif test="%{currentRisk.entries.get(0).possibility==1}">medium</s:elseif>
+                        	<s:else>high</s:else>
+						</span>
                       </li>
                       <li>
                         <span class="name"> Influence </span>
-                        <span class="value text-success"> High </span>
+                        <span class="value text-success"> 
+							<s:if test="%{currentRisk.entries.get(0).influence==0}">low</s:if>
+                        	<s:elseif test="%{currentRisk.entries.get(0).influence==1}">medium</s:elseif>
+                        	<s:else>high</s:else>
+						</span>
                       </li>
                       <li class="hidden-phone">
                         <span class="name"> status </span>
-                        <span class="value text-success"> Closed </span>
+                        <span class="value text-success">
+                        	<s:if test="%{currentRisk.entries.get(0).status==0}">Unassigned</s:if>
+                        	<s:elseif test="%{currentRisk.entries.get(0).influence==1}">Processing</s:elseif>
+                        	<s:else>closed</s:else>
+						</span>
                       </li>
                     </ul>
           <div>
-            <h3 class="heading">2012 the world end</h3>
-            <p>The 2012 phenomenon was a range of eschatological beliefs that cataclysmic or otherwise transformative events would occur on or around 21 December 2012.[1][2][3][4] This date was regarded as the end-date of a 5,126-year-long cycle in the Mesoamerican Long Count calendar,[5] and as such, festivities to commemorate the date took place on 21 December 2012 in the countries that were part of the Maya civilization (Mexico, Guatemala, Honduras, and El Salvador), with main events at Chichen Itza in Mexico, and Tikal in Guatemala.[6][7][8]</p>
+            <h3 class="heading">${currentRisk.title}</h3>
+            <p>${currentRisk.content}</p>
             <h4 class="heading">Threshold</h4>
-            <p>when 2012-11-21 comming</p>
+            <p>${currentRisk.entries.get(0).threshold.content}</p>
             <h4 class="description">Description</h4>
-            <p>can never avoid</p>
+            <p>${currentRisk.entries.get(0).description.content}</p>
           </div>  
                     
           
@@ -139,13 +151,29 @@
               <th>Description</th>
               <th>Follower</th>
             </tr>
+            
+            <s:iterator value="currentRisk.entries">
+              <tr>
+          		<td><s:property value="createdTime"/></td>
+              	<td>
+                        		<s:if test="%{entries.get(0).possibility==0}">low</s:if>
+                        		<s:elseif test="%{entries.get(0).possibility==1}">medium</s:elseif>
+                        		<s:else>high</s:else>
+                </td>	
+                
+              	<td>
+								<s:if test="%{entries.get(0).influence==0}">low</s:if>
+                        		<s:elseif test="%{entries.get(0).influence==1}">medium</s:elseif>
+                        		<s:else>high</s:else>
+				</td>
+				
+              	<td><s:property value="threshold.content"/></td>
+              	<td><s:property value="description.content"/></td>
+              	<td><s:property value="changerId"/></td>
+             </s:iterator>
+             
             <tr>
-              <td>2016-11-11 00:00:00</td>
-              <td>high</td>
-              <td>high</td>
-              <td>when 2012-11-21 comming</td>
-              <td>can never avoid the date took place on 21 December 2012 in the countries that were part of the Maya civilization (Mexico, Guatemala, Honduras, and El Salvador), with main events at Chichen Itza in Mexico, and Tikal in Guatemala.[6][7][8]</td>
-              <td>Follower</td>
+              
             </tr>
           </table>
                       <!-- end of user messages -->
@@ -169,7 +197,7 @@
                 <img src="../img/user_normal.png" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
-                <span>YongShang Wu</span>
+                <span>${user.name}</span>
                 
               </div>
              </div>
@@ -180,7 +208,7 @@
                 <img src="../img/user_normal.png" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
-                <span>YongShang Wu</span>
+                <span>${currentRisk.entries.get(0).changerId}</span>
                 
               </div>
              </div>
