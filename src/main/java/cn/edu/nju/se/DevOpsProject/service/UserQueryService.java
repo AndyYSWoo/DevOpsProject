@@ -21,6 +21,10 @@ public class UserQueryService {
 		return userDao.getUserByEmail(email);
 	}
 	
+	public User getUserById(int id){
+		return userDao.getUserById(id);
+	}
+	
 	public UserDao getUserDao() {
 		return userDao;
 	}
