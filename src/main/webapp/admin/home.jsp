@@ -169,23 +169,23 @@
 		                <h4 class="modal-title">Add User</h4>
 		            </div>
 		            <div class="modal-body">
-	        			<form class="form-horizontal form-label-left">
+	        			<form action="/DevOpsProject/Admin/addUser" method="post" class="form-horizontal form-label-left">
 		        			  <div class="form-group">
 		                      <label class="control-label col-md-2 col-sm-2 col-xs-12">Name</label>
 		                      <div class="col-md-9 col-sm-9 col-xs-12">
-		                        <input type="text" class="form-control" placeholder="Name" name="name">
+		                        <input type="text" class="form-control" placeholder="Name" name="nameToAdd">
 		                      </div>
 		                      </div>
 		                      <div class="form-group">
 		                      <label class="control-label col-md-2 col-sm-2 col-xs-12">E-mail</label>
 		                      <div class="col-md-9 col-sm-9 col-xs-12">
-		                        <input type="email" class="form-control" placeholder="E-mail" name="email">
+		                        <input type="email" class="form-control" placeholder="E-mail" name="emailToAdd">
 		                      </div>
 		                      </div>
 		                      <div class="form-group">
 		                      <label class="control-label col-md-2 col-sm-2 col-xs-12">Password</label>
 		                      <div class="col-md-9 col-sm-9 col-xs-12">
-		                        <input type="password" class="form-control" placeholder="******" name="password">
+		                        <input type="password" class="form-control" placeholder="******" name="passwordToAdd">
 		                      </div>
 		                      </div>
 		                      <div class="form-group">
@@ -193,12 +193,12 @@
 		                        <div class="col-md-9 col-sm-9 col-xs-12">
 			                        <div class="radio">
 			                          <label>
-			                            <input type="radio" class="flat" checked name="role" value="rd"> Developer
+			                            <input type="radio" class="flat" checked name="roleToAdd" value="1"> Developer
 			                          </label>
 			                        </div>
 			                        <div class="radio">
 			                          <label>
-			                            <input type="radio" class="flat" name="role" value="qa"> Project Manager
+			                            <input type="radio" class="flat" name="roleToAdd" value="0"> Project Manager
 			                          </label>
 			                        </div>
 		                      	</div>

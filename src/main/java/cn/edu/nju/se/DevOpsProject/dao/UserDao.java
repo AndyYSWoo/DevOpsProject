@@ -3,6 +3,8 @@ package cn.edu.nju.se.DevOpsProject.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.jws.soap.SOAPBinding.Use;
+
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -82,6 +84,14 @@ public class UserDao {
 		Transaction tx = null;
 		tx=session.beginTransaction();
 		session.update(user);
+		tx.commit();
+		session.close();
+	}
+	
+	public void addUser(User user){
+		Session session = sessionFactory.openSession();
+		Transaction tx = session.beginTransaction();
+		session.save(user);
 		tx.commit();
 		session.close();
 	}

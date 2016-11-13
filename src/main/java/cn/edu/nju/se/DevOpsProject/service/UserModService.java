@@ -6,6 +6,10 @@ import cn.edu.nju.se.DevOpsProject.model.User;
 public class UserModService {
 	private UserDao userDao;
 	
+	public void addUser(User user){
+		userDao.addUser(user);
+	}
+	
 	public void updateUser(User user){
 		userDao.updateUser(user);
 	}
