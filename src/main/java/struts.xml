@@ -18,7 +18,7 @@
 		<!-- 登录post -->
 		<action name="verify" class="cn.edu.nju.se.DevOpsProject.action.LoginAction" method="postLogin">
 			<result name="admin" type="redirect">/Admin/home</result>
-			<result name="user" type="redirect">/</result>
+			<result name="user" type="redirect">/Follower/home</result>
 			<result name="fail">/user/fail.jsp</result>
 			<result name="inactive">/user/inactive.jsp</result>
 			<result name="manager" type="redirect">/Manager/manage</result>
@@ -28,7 +28,11 @@
 			<result name="out" type="redirect">/User/login</result>
 		</action>
 	</package>
-	
+	<package name="follower" namespace="/Follower" extends="struts-default">
+		<action name="home" class="cn.edu.nju.se.DevOpsProject.action.FollowerAction" method="home">
+			<result name="home">/user/follower_home.jsp</result>
+		</action>
+	</package>
 	<package name="manager" namespace="/Manager" extends="struts-default">
 		<result-types>
 		    <result-type name="json" class="org.apache.struts2.json.JSONResult"/>

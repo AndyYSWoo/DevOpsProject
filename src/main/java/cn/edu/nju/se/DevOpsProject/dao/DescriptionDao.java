@@ -1,19 +1,41 @@
 package cn.edu.nju.se.DevOpsProject.dao;
 
+import java.util.List;
+
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
+import cn.edu.nju.se.DevOpsProject.model.Description;
 import cn.edu.nju.se.DevOpsProject.model.RiskEntry;
 public class DescriptionDao {
 	private SessionFactory sessionFactory;
-	public void createEntry(RiskEntry entry){
+	public int getDescriptionId(String content){
 		Session session = sessionFactory.openSession();
 		
-		//Transaction tx = session.beginTransaction();
-		//session.save(entry);
-		//tx.commit();
-		session.close();	
+		//ArrayList<Risk> list = new ArrayList<Risk>();
+		//Session session = sessionFactory.openSession();
+		String hql = "FROM description WHERE content = "+"'"+content+"'";
+		Query query = session.createQuery(hql);
+		List<?> resultList = query.list();
+		int id;
+		if(resultList.size() == 0){
+			Description des = new Description();
+			des.setContent(content);
+			id = createDescription(des);
+		}else{
+			id = ((Description)resultList.get(0)).getId();
+		}
+		session.close();
+		return id;	
+	}
+	public int createDescription(Description description){
+		Session session = sessionFactory.openSession();
+		Transaction tx = session.beginTransaction();
+		int id = (Integer)session.save(description);
+		tx.commit();
+		return id;
 	}
 	public SessionFactory getSessionFactory() {
 		return sessionFactory;
@@ -21,13 +43,5 @@ public class DescriptionDao {
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
-	public static void main(String[] args){
-		RiskEntry entry = new RiskEntry();
-		entry.setChangerId(1);
-		entry.setId(1);
-		entry.setRiskId(3);
-		RiskEntryDao dao = new RiskEntryDao();
-		dao.createEntry(entry);
-		
-	}
+
 }
