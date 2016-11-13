@@ -42,8 +42,16 @@ public class RiskEntry {
 	
 	@ManyToOne @JoinColumn(name="thresholdId", insertable=false, updatable=false)
 	Threshold threshold;
+	@ManyToOne @JoinColumn(name="changerId", insertable=false, updatable=false)
+	User changer;
 	public int getId() {
 		return id;
+	}
+	public User getChanger() {
+		return changer;
+	}
+	public void setChanger(User changer) {
+		this.changer = changer;
 	}
 	public void setId(int id) {
 		this.id = id;
@@ -90,8 +98,8 @@ public class RiskEntry {
 	public void setStatus(int status) {
 		this.status = status;
 	}
-	public Date getCreatedTime() {
-		return createdTime;
+	public String getCreatedTime() {
+		return createdTime.toString();
 	}
 	public void setCreatedTime(Date createdTime) {
 		this.createdTime = createdTime;
@@ -113,5 +121,38 @@ public class RiskEntry {
 	}
 	public void setThreshold(Threshold threshold) {
 		this.threshold = threshold;
+	}
+	public String getPossibilityStr(){
+		switch (possibility){
+		case 0:
+			return "Low";
+		case 1:
+			return "Medium";
+		default:
+			return "High";
+			
+		}
+	}
+	public String getInfluenceStr(){
+		switch (influence){
+		case 0:
+			return "Low";
+		case 1:
+			return "Medium";
+		default:
+			return "High";
+			
+		}
+	}
+	public String getStatusStr(){
+		switch (status){
+		case 0:
+			return "Unassigned";
+		case 1:
+			return "Processing";
+		default:
+			return "Closed";
+			
+		}
 	}
 }

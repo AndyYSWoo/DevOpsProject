@@ -14,6 +14,8 @@ public class RiskEntryDao {
 		Session session = sessionFactory.openSession();
 		System.out.println(entry.getDescriptionId()+"!!!!!!!!!!!!!!!!!!!!!");
 		Transaction tx = session.beginTransaction();
+		entry.setThreshold(null);
+		entry.setDescription(null);
 		session.save(entry);
 		tx.commit();
 		session.close();

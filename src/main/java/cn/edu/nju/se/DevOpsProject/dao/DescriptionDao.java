@@ -16,7 +16,7 @@ public class DescriptionDao {
 		
 		//ArrayList<Risk> list = new ArrayList<Risk>();
 		//Session session = sessionFactory.openSession();
-		String hql = "FROM description WHERE content = "+"'"+content+"'";
+		String hql = "FROM Description WHERE content = "+"'"+content+"'";
 		Query query = session.createQuery(hql);
 		List<?> resultList = query.list();
 		int id;

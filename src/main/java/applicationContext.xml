@@ -79,6 +79,9 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 	
+	<bean id="descriptionDao" class="cn.edu.nju.se.DevOpsProject.dao.DescriptionDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
 	
 	<bean id="thresholdDao" class="cn.edu.nju.se.DevOpsProject.dao.ThresholdDao">
 		<property name="sessionFactory" ref="sessionFactory" />

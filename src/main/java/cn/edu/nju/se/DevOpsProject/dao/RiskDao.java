@@ -32,6 +32,13 @@ public class RiskDao {
 		}
 		return list;
 	}
+	public Risk getRiskById(int riskId){
+		Session session = sessionFactory.openSession();
+		Transaction tx = session.beginTransaction();
+		Risk risk = (Risk)session.get(Risk.class, riskId);
+		tx.commit();
+		return risk;
+	}
 	
 	public SessionFactory getSessionFactory() {
 		return sessionFactory;

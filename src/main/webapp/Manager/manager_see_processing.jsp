@@ -169,11 +169,10 @@
               	<td><s:property value="threshold.content"/></td>
               	<td><s:property value="description.content"/></td>
               	<td><s:property value="changerId"/></td>
+              </tr>
              </s:iterator>
              
-            <tr>
-              
-            </tr>
+           
           </table>
                       <!-- end of user messages -->
                       

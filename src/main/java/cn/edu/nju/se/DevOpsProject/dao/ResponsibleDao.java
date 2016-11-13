@@ -32,7 +32,17 @@ private SessionFactory sessionFactory;
 		}
 		return list;
 	}
-	
+	public ArrayList<Responsible> getResponsiblesByRiskId(int riskId){
+		ArrayList<Responsible> list = new ArrayList<Responsible>();
+		Session session = sessionFactory.openSession();
+		String hql = "FROM Responsible WHERE riskId = "+riskId;
+		Query query = session.createQuery(hql);
+		List<?> resultList = query.list();
+		for(Object result : resultList){
+			list.add((Responsible)result);
+		}
+		return list;
+	}
 	public ArrayList<Responsible> getResponsibleByFollowerId(int followerId){
 		ArrayList<Responsible> list = new ArrayList<Responsible>();
 		Session session = sessionFactory.openSession();
