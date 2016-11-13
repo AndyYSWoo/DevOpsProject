@@ -10,9 +10,9 @@ public class RiskEntryDao {
 	public void createEntry(RiskEntry entry){
 		Session session = sessionFactory.openSession();
 		
-		//Transaction tx = session.beginTransaction();
-		//session.save(entry);
-		//tx.commit();
+		Transaction tx = session.beginTransaction();
+		session.save(entry);
+		tx.commit();
 		session.close();	
 	}
 	public SessionFactory getSessionFactory() {
