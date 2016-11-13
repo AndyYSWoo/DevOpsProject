@@ -47,14 +47,22 @@
 			<result name="riskDetail">/Follower/risk_detail.jsp</result>
 		</action>
 	</package>
+	
 	<package name="manager" namespace="/Manager" extends="struts-default">
 		<result-types>
 		    <result-type name="json" class="org.apache.struts2.json.JSONResult"/>
 		</result-types>
 		<action name="manage" class="cn.edu.nju.se.DevOpsProject.action.ManagerAction" method="manage">
-			<result name="manage">/user/manage.jsp</result>
+			<result name="manage">/Manager/manage.jsp</result>
 			<result name="login" type="redirect">/User/login</result>
 		</action>
+		
+		<action name="riskDetail" class="cn.edu.nju.se.DevOpsProject.action.ManagerAction" method="riskDetail">
+			<result name="manager_assign">/Manager/manager_assign.jsp</result>
+			<result name="manager_see_closed">/Manager/manager_see_closed.jsp</result>
+			<result name="manager_see_processing">/Manager/manager_see_processing.jsp</result>
+		</action>
+		
 		<action name="createRisk" class="cn.edu.nju.se.DevOpsProject.action.ManagerAction" method="createRisk">
 			<result name="success" type="redirect">/Manager/manage</result>
 		</action>

@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,7 +48,7 @@
             </div>
             <div class="profile_info">
               <span>Welcome,</span>
-              <h2>Manager Admin</h2>
+              <h2>Manager ${user.name}</h2>
             </div>
           </div>
           <!-- /menu prile quick info -->
@@ -74,7 +77,7 @@
             <ul class="nav navbar-nav navbar-right">
               <li class="">
                 <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                  <img src="../img/user_normal.png" alt="">Admin
+                  <img src="../img/user_normal.png" alt="">${user.name}
                   <span class=" fa fa-angle-down"></span>
                 </a>
                 <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -120,12 +123,20 @@
                     </thead>
                     <tbody>
                         <s:iterator value="riskOfNewCreated">
-                        <tr style="cursor: pointer;">
-                        <td><s:property value="id"/></td>
-                        <td><a href="manager_assign.html"><s:property value="title"/></a></td>
-                        <td><s:property value="submitterId"/></td>
-                        <td><s:property value="entries.get(0).possibility"/></td>
-                        <td><s:property value="entries.get(0).influence"/></td>
+                        	<tr style="cursor: pointer;">
+                        	<td> <s:property value="id"/> </td>
+                        	<td><a href="/DevOpsProject/Manager/riskDetail?riskId=<s:property value="id"/>" > <s:property value="title"/></a></td>
+                        	<td>${user.name}</td>
+                        	<td>
+                        		<s:if test="%{entries.get(0).possibility==0}">low</s:if>
+                        		<s:elseif test="%{entries.get(0).possibility==1}">medium</s:elseif>
+                        		<s:else>high</s:else>
+                        	</td>	
+                        	<td>
+								<s:if test="%{entries.get(0).influence==0}">low</s:if>
+                        		<s:elseif test="%{entries.get(0).influence==1}">medium</s:elseif>
+                        		<s:else>high</s:else>
+							</td>
                         </tr>
                         </s:iterator>
                        
@@ -157,10 +168,18 @@
                     	<s:iterator value="riskOfProcessing">
                         <tr style="cursor: pointer;">
                         <td><s:property value="id"/></td>
-                        <td><a href="manager_see_processing.html"><s:property value="title"/></a></td>
-                        <td><s:property value="submitterId"/></td>
-                        <td><s:property value="entries.get(0).possibility"/></td>
-                        <td><s:property value="entries.get(0).influence"/></td>
+                        <td><a href="/DevOpsProject/Manager/riskDetail?riskId=<s:property value="id"/>"><s:property value="title"/></a></td>
+                        <td>${user.name}</td>
+                        	<td>
+                        		<s:if test="%{entries.get(0).possibility==0}">low</s:if>
+                        		<s:elseif test="%{entries.get(0).possibility==1}">medium</s:elseif>
+                        		<s:else>high</s:else>
+                        	</td>	
+                        	<td>
+								<s:if test="%{entries.get(0).influence==0}">low</s:if>
+                        		<s:elseif test="%{entries.get(0).influence==1}">medium</s:elseif>
+                        		<s:else>high</s:else>
+							</td>
                         </tr>
                         </s:iterator>
                     </tbody>
@@ -193,10 +212,18 @@
                     	<s:iterator value="riskOfclosed">
                         <tr style="cursor: pointer;">
                         <td><s:property value="id"/></td>
-                        <td><a href="manager_see_closed.html"><s:property value="title"/></a></td>
-                        <td><s:property value="submitterId"/></td>
-                        <td><s:property value="entries.get(0).possibility"/></td>
-                        <td><s:property value="entries.get(0).influence"/></td>
+                        <td><a href="/DevOpsProject/Manager/riskDetail?riskId=<s:property value="id"/>"><s:property value="title"/></a></td>
+                        <td>${user.name}</td>
+                        	<td>
+                        		<s:if test="%{entries.get(0).possibility==0}">low</s:if>
+                        		<s:elseif test="%{entries.get(0).possibility==1}">medium</s:elseif>
+                        		<s:else>high</s:else>
+                        	</td>	
+                        	<td>
+								<s:if test="%{entries.get(0).influence==0}">low</s:if>
+                        		<s:elseif test="%{entries.get(0).influence==1}">medium</s:elseif>
+                        		<s:else>high</s:else>
+							</td>
                         </tr>
                         </s:iterator>
                
