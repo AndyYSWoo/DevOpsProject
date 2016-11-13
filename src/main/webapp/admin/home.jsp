@@ -126,27 +126,28 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>110</td>
-                        <td>Tiger Nixon</td>
-                        <td>Edinburgh@gmail.com</td>
-                        <td style="text-align: center;"><a href="#">Disable</a></td>
-                      </tr>
                       <s:iterator value="users">
-                      	<td>
-                      		<s:property value="id"/>
-                      	</td>
-                    	<td>
-                      		<s:property value="name"/>
-                      	</td>
-                      	<td>
-                      		<s:property value="email"/>
-                      	</td>
-                      	<td>
-                      		<s:if test="%{role==0}">Manager</s:if>
-                      		<s:else>Developer</s:else>
-                      	</td>
-                      	<td style="text-align: center;"><a href="#">Disable</a></td>
+                      	<tr>
+	                      	<td>
+	                      		<s:property value="id"/>
+	                      	</td>
+	                    	<td>
+	                      		<s:property value="name"/>
+	                      	</td>
+	                      	<td>
+	                      		<s:property value="email"/>
+	                      	</td>
+	                      	<td>
+	                      		<s:if test="%{role==0}">Manager</s:if>
+	                      		<s:else>Developer</s:else>
+	                      	</td>
+	                      	<td style="text-align: center;">
+	                      	<form id="disable<s:property value="id"/>" action="/DevOpsProject/Admin/disable" method="post">
+	                      		<input type="hidden" name="userIdToDisable" id="userIdToDisable" value="<s:property value="id"/>"/>
+	                      	</form>
+	                      	<a href="#" onclick="document.getElementById('disable<s:property value="id"/>').submit();return false">Disable</a>
+	                      	</td>
+                      	</tr>
                       </s:iterator>
                     </tbody>
                   </table>

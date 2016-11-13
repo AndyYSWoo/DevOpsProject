@@ -7,8 +7,9 @@ import org.hibernate.Transaction;
 import cn.edu.nju.se.DevOpsProject.model.RiskEntry;
 public class RiskEntryDao {
 	private SessionFactory sessionFactory;
-	public void createNewEntry(RiskEntry entry){
+	public void createEntry(RiskEntry entry){
 		Session session = sessionFactory.openSession();
+		
 		Transaction tx = session.beginTransaction();
 		session.save(entry);
 		tx.commit();
@@ -26,7 +27,7 @@ public class RiskEntryDao {
 		entry.setId(1);
 		entry.setRiskId(3);
 		RiskEntryDao dao = new RiskEntryDao();
-		//dao.createEntry(entry);
+		dao.createEntry(entry);
 		
 	}
 }

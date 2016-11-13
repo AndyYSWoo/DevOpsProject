@@ -10,6 +10,7 @@ import org.hibernate.Transaction;
 
 import cn.edu.nju.se.DevOpsProject.model.Risk;
 import cn.edu.nju.se.DevOpsProject.model.RiskEntry;
+import cn.edu.nju.se.DevOpsProject.model.Threshold;
 public class ThresholdDao {
 	private SessionFactory sessionFactory;
 	public int getThresholdId(String threshold){
@@ -26,6 +27,14 @@ public class ThresholdDao {
 		session.close();
 		return 1;
 			
+	}
+	
+	public int creatNewThreshold(Threshold threshold){
+		Session session = sessionFactory.openSession();
+		Transaction tx = session.beginTransaction();
+		int id = (Integer)session.save(threshold);
+		tx.commit();
+		return id;
 	}
 	
 	public SessionFactory getSessionFactory() {

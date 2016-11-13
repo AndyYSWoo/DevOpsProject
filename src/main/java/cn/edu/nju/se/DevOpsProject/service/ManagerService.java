@@ -5,17 +5,23 @@ import java.util.ArrayList;
 import cn.edu.nju.se.DevOpsProject.dao.ResponsibleDao;
 import cn.edu.nju.se.DevOpsProject.dao.RiskDao;
 import cn.edu.nju.se.DevOpsProject.dao.RiskEntryDao;
+import cn.edu.nju.se.DevOpsProject.dao.ThresholdDao;
 import cn.edu.nju.se.DevOpsProject.model.Responsible;
 import cn.edu.nju.se.DevOpsProject.model.Risk;
 import cn.edu.nju.se.DevOpsProject.model.RiskEntry;
+import cn.edu.nju.se.DevOpsProject.model.Threshold;
 
 public class ManagerService {
 	private RiskDao riskDao;
 	private ResponsibleDao responsibleDao;
 	private RiskEntryDao riskEntryDao;
+	private ThresholdDao thresholdDao;
 	
-	public boolean createNewRisk(Risk risk,RiskEntry riskEntry){
-		riskDao.creatNewRisk(risk);
+	public boolean createNewRisk(Risk risk,Threshold threshold,RiskEntry riskEntry){
+		int riskId = riskDao.creatNewRisk(risk);
+		int thresholdId = thresholdDao.creatNewThreshold(threshold);
+		riskEntry.setRiskId(riskId);
+		riskEntry.setThresholdId(thresholdId);
 		riskEntryDao.createEntry(riskEntry);
 		return true;
 	}
@@ -63,6 +69,14 @@ public class ManagerService {
 
 	public void setRiskEntryDao(RiskEntryDao riskEntryDao) {
 		this.riskEntryDao = riskEntryDao;
+	}
+
+	public ThresholdDao getThresholdDao() {
+		return thresholdDao;
+	}
+
+	public void setThresholdDao(ThresholdDao thresholdDao) {
+		this.thresholdDao = thresholdDao;
 	}
 	
 	
