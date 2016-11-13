@@ -41,7 +41,10 @@
 	</package>
 	<package name="follower" namespace="/Follower" extends="struts-default">
 		<action name="home" class="cn.edu.nju.se.DevOpsProject.action.FollowerAction" method="home">
-			<result name="home">/user/follower_home.jsp</result>
+			<result name="home">/Follower/follower_home.jsp</result>
+		</action>
+		<action name="riskDetail" class="cn.edu.nju.se.DevOpsProject.action.FollowerAction" method="riskDetail">
+			<result name="riskDetail">/Follower/risk_detail.jsp</result>
 		</action>
 	</package>
 	<package name="manager" namespace="/Manager" extends="struts-default">
