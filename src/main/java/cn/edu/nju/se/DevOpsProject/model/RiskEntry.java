@@ -37,10 +37,6 @@ public class RiskEntry {
 	@ManyToOne @JoinColumn(name="riskId", insertable=false, updatable=false)
 	Risk risk;
 	
-	@Fetch(FetchMode.SELECT)
-	@OneToMany(fetch=FetchType.EAGER,targetEntity=Responsible.class, cascade=CascadeType.ALL, mappedBy="riskEntryId")
-	List<Responsible> responsibles;
-	
 	@ManyToOne @JoinColumn(name="descriptionId", insertable=false, updatable=false)
 	Description description;
 	
@@ -105,12 +101,6 @@ public class RiskEntry {
 	}
 	public void setRisk(Risk risk) {
 		this.risk = risk;
-	}
-	public List<Responsible> getResponsibles() {
-		return responsibles;
-	}
-	public void setResponsibles(List<Responsible> responsibles) {
-		this.responsibles = responsibles;
 	}
 	public Description getDescription() {
 		return description;

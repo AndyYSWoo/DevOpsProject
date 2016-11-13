@@ -29,6 +29,10 @@ public class Risk {
 	@OneToMany(fetch=FetchType.EAGER, targetEntity=RiskEntry.class, cascade=CascadeType.ALL, mappedBy="riskId")
 	@OrderBy("id DESC")
 	List<RiskEntry> entries;
+	
+	@Fetch(FetchMode.SELECT)
+	@OneToMany(fetch=FetchType.EAGER, targetEntity=Responsible.class, cascade=CascadeType.ALL, mappedBy="riskId")
+	List<Responsible> responsibles;
 	public int getId() {
 		return id;
 	}
@@ -58,5 +62,11 @@ public class Risk {
 	}
 	public void setEntries(List<RiskEntry> entries) {
 		this.entries = entries;
+	}
+	public List<Responsible> getResponsibles() {
+		return responsibles;
+	}
+	public void setResponsibles(List<Responsible> responsibles) {
+		this.responsibles = responsibles;
 	}
 }
