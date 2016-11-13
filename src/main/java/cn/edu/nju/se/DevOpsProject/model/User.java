@@ -1,10 +1,19 @@
 package cn.edu.nju.se.DevOpsProject.model;
 
 import javax.persistence.GeneratedValue;
+
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 @Entity
 @Table(name="user")
@@ -16,6 +25,11 @@ public class User {
 	String psw;
 	int role;// 0: PM, 1: RD
 	int status;// 0: inactive, 1: active
+	
+	@Fetch(FetchMode.SELECT)
+	@OneToMany(fetch=FetchType.EAGER, targetEntity=Responsible.class, cascade=CascadeType.ALL, mappedBy="userId")
+	List<Responsible> responsibles;
+	
 	public int getId() {
 		return id;
 	}
@@ -52,5 +66,10 @@ public class User {
 	public void setStatus(int status) {
 		this.status = status;
 	}
-	
+	public List<Responsible> getResponsibles() {
+		return responsibles;
+	}
+	public void setResponsibles(List<Responsible> responsibles) {
+		this.responsibles = responsibles;
+	}
 }
