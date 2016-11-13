@@ -4,13 +4,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
-	  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	  <!-- Meta, title, CSS, favicons, etc. -->
 	  <meta charset="utf-8">
 	  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	  <meta name="viewport" content="width=device-width, initial-scale=1">
 	
-	  <title> Active Users Overview </title>
+	  <title> User Reactive </title>
 	
 	  <!-- Bootstrap core CSS -->
 	
@@ -19,7 +19,6 @@
 	  <link href="${pageContext.request.contextPath}/font/admin//css/font-awesome.min.css" rel="stylesheet">
 	  <link href="${pageContext.request.contextPath}/css/admin/animate.min.css" rel="stylesheet">
 	
-	  <link href="${pageContext.request.contextPath}/css/admin/select/select2.min.css" rel="stylesheet">
 	  <!-- Custom styling plus plugins -->
 	  <link href="${pageContext.request.contextPath}/css/admin/custom.css" rel="stylesheet">
 	  <link href="${pageContext.request.contextPath}/css/admin/icheck/flat/green.css" rel="stylesheet">
@@ -69,6 +68,7 @@
               </ul>
             </div>
           </div>
+          <!-- /menu footer buttons -->
         </div>
       </div>
 
@@ -86,9 +86,10 @@
                   <span class=" fa fa-angle-down"></span>
                 </a>
                 <ul class="dropdown-menu dropdown-usermenu pull-right">
-                  <li><a href="/DevOpsProject/User/logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                  <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                   </li>
                 </ul>
+              </li>
               </li>
             </ul>
           </nav>
@@ -97,7 +98,7 @@
       <!-- /top navigation -->
       
       <!-- page content -->
-      <div class="right_col" role="main" style="height: 700px;">
+      <div class="right_col" role="main" style="min-height: 720px;">
         
         <div class="">
 
@@ -106,12 +107,7 @@
               <div class="x_panel">
                 <div class="row x_title">
                   <div class="col-md-6">
-                    <h3>Active Users Overview</h3>
-                  </div>
-                  <div class="col-md-offset-4 col-md-2" style="padding-top: 1%;">
-                  	<a id="add-user" href="#" data-toggle="modal" data-target="#add-developer">
-                        <i class="fa fa-plus"></i> Add User
-                    </a>
+                    <h3>Inactive Users Overview</h3>
                   </div>
                 </div>
                 <div class="x_content">
@@ -142,10 +138,10 @@
 	                      		<s:else>Developer</s:else>
 	                      	</td>
 	                      	<td style="text-align: center;">
-	                      	<form id="disable<s:property value="id"/>" action="/DevOpsProject/Admin/disable" method="post">
-	                      		<input type="hidden" name="userIdToDisable" id="userIdToDisable" value="<s:property value="id"/>"/>
+	                      	<form id="enable<s:property value="id"/>" action="/DevOpsProject/Admin/enable" method="post">
+	                      		<input type="hidden" name="userIdToEnable" id="userIdToEnable" value="<s:property value="id"/>"/>
 	                      	</form>
-	                      	<a href="#" onclick="document.getElementById('disable<s:property value="id"/>').submit();return false">Disable</a>
+	                      	<a href="#" onclick="document.getElementById('enable<s:property value="id"/>').submit();return false">Enable</a>
 	                      	</td>
                       	</tr>
                       </s:iterator>
@@ -158,64 +154,10 @@
           
           <div class="clearfix"></div>
         </div>
-
       </div>
-      <!--add developer form-->
-		<div class="modal fade" id="add-developer" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		    <div class="modal-dialog">
-		        <div class="modal-content">
-		            <div class="modal-header">
-		                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-		                <h4 class="modal-title">Add User</h4>
-		            </div>
-		            <div class="modal-body">
-	        			<form action="/DevOpsProject/Admin/addUser" method="post" class="form-horizontal form-label-left">
-		        			  <div class="form-group">
-		                      <label class="control-label col-md-2 col-sm-2 col-xs-12">Name</label>
-		                      <div class="col-md-9 col-sm-9 col-xs-12">
-		                        <input type="text" class="form-control" placeholder="Name" name="nameToAdd">
-		                      </div>
-		                      </div>
-		                      <div class="form-group">
-		                      <label class="control-label col-md-2 col-sm-2 col-xs-12">E-mail</label>
-		                      <div class="col-md-9 col-sm-9 col-xs-12">
-		                        <input type="email" class="form-control" placeholder="E-mail" name="emailToAdd">
-		                      </div>
-		                      </div>
-		                      <div class="form-group">
-		                      <label class="control-label col-md-2 col-sm-2 col-xs-12">Password</label>
-		                      <div class="col-md-9 col-sm-9 col-xs-12">
-		                        <input type="password" class="form-control" placeholder="******" name="passwordToAdd">
-		                      </div>
-		                      </div>
-		                      <div class="form-group">
-		                      <label class="control-label col-md-2 col-sm-2 col-xs-12">Role</label>
-		                        <div class="col-md-9 col-sm-9 col-xs-12">
-			                        <div class="radio">
-			                          <label>
-			                            <input type="radio" class="flat" checked name="roleToAdd" value="1"> Developer
-			                          </label>
-			                        </div>
-			                        <div class="radio">
-			                          <label>
-			                            <input type="radio" class="flat" name="roleToAdd" value="0"> Project Manager
-			                          </label>
-			                        </div>
-		                      	</div>
-		                      </div>
-							  <div class="ln_solid"></div>
-							  <div class="col-md-offset-10">
-		                      <button type="submit" class="btn btn-success">Submit</button>
-		                      </div>
-	        			</form>
-		            </div>
-		            
-		        </div>
-		    </div>
-		</div>
-
       <!-- /page content -->
-<!-- footer content -->
+
+      <!-- footer content -->
       <footer>
         <div class="pull-right">
           Software Risk Management
@@ -223,20 +165,17 @@
         <div class="clearfix"></div>
       </footer>
       <!-- /footer content -->
-     
     </div>
-
   </div>
-
-
+  
   <script src="${pageContext.request.contextPath}/js/bootstrap.js"></script>
-
-  <!-- bootstrap progress js -->
   <!-- icheck -->
   <script src="${pageContext.request.contextPath}/js/admin/icheck/icheck.min.js"></script>
 
   <script src="${pageContext.request.contextPath}/js/admin/custom.js"></script>
 
+  <script src="${pageContext.request.contextPath}/js/admin/moment/moment.min.js"></script>
+  <script src="${pageContext.request.contextPath}/js/admin/calendar/fullcalendar.min.js"></script>
   <!-- pace -->
   <script src="${pageContext.request.contextPath}/js/admin/pace/pace.min.js"></script>
 
@@ -249,11 +188,14 @@
 
   <script type="text/javascript">
       $(document).ready(function() {
-        var table = $('#user-datatable').DataTable();
+        var table = $('#user-datatable').DataTable({
+          fixedHeader: true,
+        });
       });
   </script>
 
-  <!-- /datepicker -->
+  
+
         <script src="${pageContext.request.contextPath}/js/highcharts/highcharts.js"></script>
         <script src="${pageContext.request.contextPath}/js/highcharts/modules/data.js"></script>
         <script src="${pageContext.request.contextPath}/js/highcharts/modules/drilldown.js"></script>

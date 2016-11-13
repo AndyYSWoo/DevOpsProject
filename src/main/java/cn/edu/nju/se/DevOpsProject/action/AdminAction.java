@@ -9,7 +9,10 @@ import cn.edu.nju.se.DevOpsProject.util.ContextHelper;
 
 public class AdminAction extends BaseAction{
 	private List<User> users;
+	
 	private int userIdToDisable;
+	private int userIdToEnable;
+	
 	private String nameToAdd;
 	private String emailToAdd;
 	private String passwordToAdd;
@@ -18,6 +21,11 @@ public class AdminAction extends BaseAction{
 		UserQueryService userQueryService = (UserQueryService)ContextHelper.getBean("userQueryService");
 		users = userQueryService.getActiveUsers();
 		return "homePage";
+	}
+	public String inactives() throws Exception{
+		UserQueryService userQueryService = (UserQueryService)ContextHelper.getBean("userQueryService");
+		users = userQueryService.getInactiveUsers();
+		return "inactives";
 	}
 	
 	public String disableUser() throws Exception{
@@ -28,6 +36,17 @@ public class AdminAction extends BaseAction{
 		UserModService userModService = (UserModService)ContextHelper.getBean("userModService");
 		userModService.updateUser(user);
 		
+		return "success";
+	}
+	
+	public String enableUser() throws Exception{
+		UserQueryService userQueryService = (UserQueryService)ContextHelper.getBean("userQueryService");
+		User user = userQueryService.getUserById(userIdToEnable);
+		user.setStatus(1);
+		
+		UserModService userModService = (UserModService)ContextHelper.getBean("userModService");
+		userModService.updateUser(user);
+
 		return "success";
 	}
 	
@@ -90,5 +109,11 @@ public class AdminAction extends BaseAction{
 
 	public void setRoleToAdd(int roleToAdd) {
 		this.roleToAdd = roleToAdd;
+	}
+	public int getUserIdToEnable() {
+		return userIdToEnable;
+	}
+	public void setUserIdToEnable(int userIdToEnable) {
+		this.userIdToEnable = userIdToEnable;
 	}
 }

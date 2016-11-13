@@ -9,12 +9,14 @@ import cn.edu.nju.se.DevOpsProject.util.ContextHelper;
 public class RiskEntryDao {
 	
 	private SessionFactory sessionFactory;
+	
 	public void createEntry(RiskEntry entry){
-		Session session = sessionFactory.openSession();		
+		Session session = sessionFactory.openSession();
+		System.out.println(entry.getDescriptionId()+"!!!!!!!!!!!!!!!!!!!!!");
 		Transaction tx = session.beginTransaction();
 		session.save(entry);
 		tx.commit();
-		session.close();	
+		session.close();
 	}
 	public void createAutoEntry(RiskEntry entry){
 		DescriptionDao descDao = (DescriptionDao)ContextHelper.getBean("descriptionDao");
