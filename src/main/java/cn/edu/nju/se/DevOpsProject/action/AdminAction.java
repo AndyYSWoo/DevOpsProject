@@ -10,6 +10,10 @@ import cn.edu.nju.se.DevOpsProject.util.ContextHelper;
 public class AdminAction extends BaseAction{
 	private List<User> users;
 	private int userIdToDisable;
+	private String nameToAdd;
+	private String emailToAdd;
+	private String passwordToAdd;
+	private int roleToAdd;
 	public String home() throws Exception{
 		UserQueryService userQueryService = (UserQueryService)ContextHelper.getBean("userQueryService");
 		users = userQueryService.getActiveUsers();
@@ -28,6 +32,15 @@ public class AdminAction extends BaseAction{
 	}
 	
 	public String addUser() throws Exception{
+		User user = new User();
+		user.setName(nameToAdd);
+		user.setEmail(emailToAdd);
+		user.setPsw(passwordToAdd);
+		user.setRole(roleToAdd);
+		user.setStatus(1);
+		
+		UserModService userModService = (UserModService)ContextHelper.getBean("userModService");
+		userModService.addUser(user);
 		
 		return "success";
 	}
@@ -45,5 +58,37 @@ public class AdminAction extends BaseAction{
 
 	public void setUserIdToDisable(int userIdToDisable) {
 		this.userIdToDisable = userIdToDisable;
+	}
+
+	public String getNameToAdd() {
+		return nameToAdd;
+	}
+
+	public void setNameToAdd(String nameToAdd) {
+		this.nameToAdd = nameToAdd;
+	}
+
+	public String getEmailToAdd() {
+		return emailToAdd;
+	}
+
+	public void setEmailToAdd(String emailToAdd) {
+		this.emailToAdd = emailToAdd;
+	}
+
+	public String getPasswordToAdd() {
+		return passwordToAdd;
+	}
+
+	public void setPasswordToAdd(String passwordToAdd) {
+		this.passwordToAdd = passwordToAdd;
+	}
+
+	public int getRoleToAdd() {
+		return roleToAdd;
+	}
+
+	public void setRoleToAdd(int roleToAdd) {
+		this.roleToAdd = roleToAdd;
 	}
 }

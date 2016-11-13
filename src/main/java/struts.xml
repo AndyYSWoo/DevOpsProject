@@ -11,7 +11,7 @@
 		<action name="disable" class="cn.edu.nju.se.DevOpsProject.action.AdminAction" method="disableUser">
 			<result name="success" type="redirect">/Admin/home</result>
 		</action>
-		<action name="addUser" class="cn.edu.nju.se.DevOpsProject.action.AdminAction">
+		<action name="addUser" class="cn.edu.nju.se.DevOpsProject.action.AdminAction" method="addUser">
 			<result name="success" type="redirect">/Admin/home</result>
 		</action>
 	</package>
