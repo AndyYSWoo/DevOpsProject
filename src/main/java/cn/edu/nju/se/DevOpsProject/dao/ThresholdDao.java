@@ -5,7 +5,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 import cn.edu.nju.se.DevOpsProject.model.RiskEntry;
-public class RiskEntryDao {
+public class ThresholdDao {
 	private SessionFactory sessionFactory;
 	public void createEntry(RiskEntry entry){
 		Session session = sessionFactory.openSession();

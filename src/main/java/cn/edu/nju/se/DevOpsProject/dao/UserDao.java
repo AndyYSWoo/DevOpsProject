@@ -50,7 +50,7 @@ public class UserDao {
 		return users;
 	}
 	
-	public User getUserById(String id){
+	public User getUserById(int id){
 		Session session = sessionFactory.openSession();
 		Criteria criteria = session.createCriteria(User.class);
 		criteria.add(Restrictions.eq("id", id));
