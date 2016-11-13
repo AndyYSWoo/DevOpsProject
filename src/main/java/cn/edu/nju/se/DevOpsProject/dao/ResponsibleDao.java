@@ -21,10 +21,10 @@ private SessionFactory sessionFactory;
 		return id;
 	}
 	
-	public ArrayList<Responsible> getResponsiblesByRisk_entryId(int riskEntryId){
+	public ArrayList<Responsible> getResponsiblesByRisk_entryId(int riskId){
 		ArrayList<Responsible> list = new ArrayList<Responsible>();
 		Session session = sessionFactory.openSession();
-		String hql = "FROM responsible WHERE riskEntryId = "+riskEntryId;
+		String hql = "FROM responsible WHERE riskId = "+riskId;
 		Query query = session.createQuery(hql);
 		List<?> resultList = query.list();
 		for(Object result : resultList){

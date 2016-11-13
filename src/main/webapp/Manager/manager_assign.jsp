@@ -157,7 +157,7 @@
               <h4 class="modal-title">Assign To</h4>
             </div>
             <div class="modal-body">
-              <form actiom="/DevOpsProject/Manager/createResponsible">
+              <form action="/DevOpsProject/Manager/createResponsible?riskId=${currentRisk.id}" method = "post">
               <table class="table table-striped responsive-utilities jambo_table">
                 <thead>
                   <tr class="headings">
@@ -172,7 +172,7 @@
                 	<s:iterator value="userlist">
                 		<tr>
                     	<td class="a-center ">
-                      		<input type="checkbox" class="flat" name="userIds[]" value=<s:property value="id"/>>
+                      		<input type="checkbox" class="flat" name="userIds" value=<s:property value="id"/>>
                     	</td>
                     		<td class=" "><s:property value="id"/></td>
                     		<td class=" "><s:property value="name"/></td>

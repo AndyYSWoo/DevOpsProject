@@ -11,6 +11,7 @@ import java.util.List;
 
 
 
+
 import cn.edu.nju.se.DevOpsProject.dao.UserDao;
 import cn.edu.nju.se.DevOpsProject.model.Risk;
 import cn.edu.nju.se.DevOpsProject.model.RiskEntry;
@@ -75,6 +76,7 @@ public class ManagerAction extends BaseAction{
 				currentRisk = r;
 				UserDao userdao = (UserDao)ContextHelper.getBean("userDao");
 				List<User> users = userdao.getAllUsers();
+				userlist = new ArrayList<User>();
 				for(User user:users){
 					if(user.getRole()==1){
 						userlist.add(user);
@@ -100,9 +102,9 @@ public class ManagerAction extends BaseAction{
 	
 	public String createResponsible() throws Exception{
 		ManagerService managerService = (ManagerService)ContextHelper.getBean("managerService");
-		int riskEntryId = (int)session.get("riskEntryId");
-		ArrayList<User> users = (ArrayList<User>)session.get("users");
-		managerService.addResponsible(riskEntryId, userIds);
+		int riskId = Integer.parseInt(request.getParameter("riskId"));
+		System.out.println(riskId+"----------------"+userIds.size());
+		managerService.addResponsible(riskId, userIds);
 		return "success";
 	}
 
