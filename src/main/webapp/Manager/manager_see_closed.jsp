@@ -208,7 +208,7 @@
                 <img src="../img/user_normal.png" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
-                <span>${currentRisk.entries.get(0).changerId}</span>
+                <span>${follower.name}</span>
                 
               </div>
              </div>
