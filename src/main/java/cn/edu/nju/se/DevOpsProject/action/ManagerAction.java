@@ -1,12 +1,19 @@
 package cn.edu.nju.se.DevOpsProject.action;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+
+
+
+
+
 
 
 import cn.edu.nju.se.DevOpsProject.dao.UserDao;
 import cn.edu.nju.se.DevOpsProject.model.Risk;
 import cn.edu.nju.se.DevOpsProject.model.RiskEntry;
+import cn.edu.nju.se.DevOpsProject.model.Threshold;
 import cn.edu.nju.se.DevOpsProject.model.User;
 import cn.edu.nju.se.DevOpsProject.service.ManagerService;
 import cn.edu.nju.se.DevOpsProject.util.ContextHelper;
@@ -16,6 +23,11 @@ public class ManagerAction extends BaseAction{
 	private ArrayList<Risk> riskOfProcessing;
 	private ArrayList<Risk> riskOfclosed;
 	private ArrayList<Integer> userIds;
+	private String content;
+	private String title;
+	private String threshold;
+	private int influence;
+	private int possibility;
 	
 	public String manage() throws Exception{
 		ManagerService managerService = (ManagerService)ContextHelper.getBean("managerService");
@@ -42,9 +54,17 @@ public class ManagerAction extends BaseAction{
 	
 	public String createRisk() throws Exception{
 		Risk risk = new Risk();
+		risk.setContent(content);
+		risk.setTitle(title);
+		risk.setSubmitterId((int)session.get("userid"));
+		Threshold thre = new Threshold();
+		thre.setContent(threshold);
 		RiskEntry riskEntry = new RiskEntry();
+		riskEntry.setCreatedTime(new Date());
+		riskEntry.setInfluence(influence);
+		riskEntry.setPossibility(possibility);
 		ManagerService managerService = (ManagerService)ContextHelper.getBean("managerService");
-		managerService.createNewRisk(risk, riskEntry);
+		managerService.createNewRisk(risk,thre,riskEntry);
 		return "success";
 	}
 	
@@ -84,6 +104,66 @@ public class ManagerAction extends BaseAction{
 
 	public void setRiskOfclosed(ArrayList<Risk> riskOfclosed) {
 		this.riskOfclosed = riskOfclosed;
+	}
+
+
+	public ArrayList<Integer> getUserIds() {
+		return userIds;
+	}
+
+
+	public void setUserIds(ArrayList<Integer> userIds) {
+		this.userIds = userIds;
+	}
+
+
+	public String getContent() {
+		return content;
+	}
+
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+
+	public String getTitle() {
+		return title;
+	}
+
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+
+	public String getThreshold() {
+		return threshold;
+	}
+
+
+	public void setThreshold(String threshold) {
+		this.threshold = threshold;
+	}
+
+
+	public int getInfluence() {
+		return influence;
+	}
+
+
+	public void setInfluence(int influence) {
+		this.influence = influence;
+	}
+
+
+	public int getPossibility() {
+		return possibility;
+	}
+
+
+	public void setPossibility(int possibility) {
+		this.possibility = possibility;
 	}
 	
 	

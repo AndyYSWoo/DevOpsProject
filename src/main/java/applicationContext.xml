@@ -75,10 +75,16 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 	
+	
+	<bean id="thresholdDao" class="cn.edu.nju.se.DevOpsProject.dao.ThresholdDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
 	<bean id="managerService" class="cn.edu.nju.se.DevOpsProject.service.ManagerService">
 		<property name="riskDao" ref="riskDao"/>
 		<property name="responsibleDao" ref="responsibleDao"/>
 		<property name="riskEntryDao" ref="riskEntryDao"/>
+		<property name="thresholdDao" ref="thresholdDao"/>
 	</bean>
 
 

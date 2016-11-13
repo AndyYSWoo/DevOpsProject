@@ -34,7 +34,7 @@
 		    <result-type name="json" class="org.apache.struts2.json.JSONResult"/>
 		</result-types>
 		<action name="manage" class="cn.edu.nju.se.DevOpsProject.action.ManagerAction" method="manage">
-			<result name="manage">/user/manage.jsp</result>
+			<result name="manage">/Manager/manage.jsp</result>
 			<result name="login" type="redirect">/User/login</result>
 		</action>
 		<action name="createRisk" class="cn.edu.nju.se.DevOpsProject.action.ManagerAction" method="createRisk">
